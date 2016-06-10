@@ -1,0 +1,15 @@
+---------- Date: 2014-10-10 07:30:23 ~ IP : 58.187.86.227 ----------
+REQUEST URI : /bromic/2/admin/index.php?route=module/kuler_showcase&amp;token=0461ecde9e4c1b328fe4b36aeff3aa87
+MOD DETAILS:
+   modFile   : /home/kladmin/public_html/demo.kulerthemes/bromic/2/vqmod/xml/kulerthemes_cp.xml
+   id        : KulerThemes
+   version   : 
+   vqmver    : 
+   author    : kulerthemes.com
+
+File Name    : admin/view/template/module/*.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): html += '      <option value="content_top"><?php echo $text_content_top; ?></option>';
+
+----------------------------------------------------------------------
+
+

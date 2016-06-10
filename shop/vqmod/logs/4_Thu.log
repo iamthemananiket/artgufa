@@ -1,0 +1,15 @@
+---------- Date: 2014-09-04 11:22:49 ~ IP : 127.0.0.1 ----------
+REQUEST URI : /opc1564/bromic/admin/index.php?route=setting/store&amp;token=d04106eebbd1fbc515ce90b1f3259be6
+MOD DETAILS:
+   modFile   : D:\wamp\www\opc1564\bromic\vqmod/xml/kulerthemes_cp.xml
+   id        : KulerThemes
+   version   : 
+   vqmver    : 
+   author    : kulerthemes.com
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/ content_bottom.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/ column_left.php] (SKIPPED)
+VQModObject::parseMods - Could not resolve path for [catalog/controller/common/ column_right.php] (SKIPPED)
+
+----------------------------------------------------------------------
+
+

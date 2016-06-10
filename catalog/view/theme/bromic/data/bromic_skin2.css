@@ -1,0 +1,445 @@
+/* Layout */
+
+/* Custom Notification */
+
+
+/* Scroll up */
+
+.scrollup {
+	z-index: 2;
+	position: fixed;
+	right: 50px;
+}
+
+
+/* Style Customization */
+
+.scrollup,
+.kuler-accordion .item-title.selected,
+button, .button, a.button,
+#header .checkout a,
+.read-more,
+#tabs a.selected,
+#top-bar .checkout .view:hover,
+#top-bar .checkout .check:hover,
+.pagination .links a:hover,
+.pagination .links b{
+	background-color: #44bbf8;
+}
+
+
+
+  #container{
+    background-color: #fff;
+  }
+
+
+
+    a,a:visited,
+    .mainmenu > li a,
+    #top-bar a{
+        color: #44BBF8;
+    }
+
+
+
+
+  .mainmenu > li:hover{
+    border-color: #8a0b85;
+  }
+  .product-grid .name a:hover,
+  .product-filter .display a:hover,
+  .product-filter .display span:hover,
+  .product-filter .product-compare a:hover,
+  #megamenu .mainmenu > li > div .item > a:hover,
+  #megamenu .subcat li a:hover,
+  .breadcrumb li a:hover{
+    color: #8a0b85;
+  }
+  .button:hover,
+  a.button:hover,
+  #header .checkout a:hover,
+  .cart-total + .buttons a:hover,
+  .cart-total + .buttons a:hover,
+  #header #cart .heading #cart-product-total,
+  .scrollup,
+  .newsletter button:hover{
+    background-color: #8a0b85;
+  }
+
+  .sale{
+    background-color: #8a0b85;
+  }
+  .sale:after{
+    border-color: #8a0b85 transparent transparent transparent;
+  }
+
+  .details .cart:hover,
+  .details .quick-view a:hover:before,
+  .details .cart a:hover:before,
+  .details .compare a:hover:before,
+  .details .wishlist a:hover:before{
+    background-color: #8a0b85;
+  }
+
+
+
+  body {
+    
+      font-family: Ubuntu;
+    
+    
+    
+    
+    
+    
+      color: #1a1717;
+    
+  }
+  .kuler-tabs,.kuler-slides,
+  #header .checkout a,
+  .cart-total + .buttons a,
+  .ui-widget{
+  
+    font-family: Ubuntu;
+  
+}
+
+
+
+h1,h2,h3,h4,h5,h6,.box-heading {
+  
+    font-family: McLaren;
+  
+  
+    font-style: normal;
+  
+  
+    font-weight: 900;
+  
+  
+}
+
+
+
+
+  h1,h2,h3,h4,h5,h6,.box-heading {
+    color: #44bbf8;
+  }
+  .bottom h3:after,
+  #footer h3:after,
+  .box-heading:after,
+  .kuler-slides .box-heading:after{
+    background-color: #44bbf8;
+  }
+
+
+
+  #top-bar{
+  
+    background-color: rgba(0,0,0,1);
+  
+  }
+
+
+
+  #top-bar a,
+  #top-bar .extra .dropdown-toggle{
+    
+      color: #ffffff;
+    
+  }
+
+
+
+  #top-bar a:hover{
+    
+      color: #8a0b85;
+    
+  }
+
+
+
+  #top-bar{
+    
+      color: #1a1717;
+    
+  }
+
+
+
+
+
+#header{
+    
+}
+
+  #header {
+      background-image: url(http://kartpro.unystore.com/image/data/univers wallpaper 1.jpg);
+      
+        background-repeat: no-repeat;
+      
+      
+        background-position: center center;
+      
+      
+        background-attachment: fixed;
+      
+  }
+
+
+  #header{
+  
+    background-color: #FFFFFF;
+  
+  }
+
+
+
+
+#header #cart .content, #top-bar #cart .content{
+    
+}
+
+#header #cart #cart-total:before, #top-bar #cart #cart-total:before{
+    
+    
+      color: #44bbf8;
+    
+}
+
+
+.bottom,.social-newsletter{
+  
+    background-color: #212121;
+  
+}
+
+
+.social-newsletter .container,.bottom{
+    
+}
+
+.bottom,.social-newsletter{
+    
+      background-image: url(http://kartpro.unystore.com/catalog/view/theme/bromic/data/patterns/binding_dark_retina.png);
+    
+    
+      color: #ffffff;
+    
+}
+
+
+
+
+  .bottom h3, .bottom .box-heading{
+    
+      color: #f2e5e5;
+    
+  }
+  .bottom h3:after,
+  .bottom h3:after{
+    background-color: #f2e5e5;
+  }
+
+
+
+  .bottom a{
+    
+      color: #ffffff;
+    
+  }
+
+
+
+
+#powered{
+  
+    background-color: #ffffff;
+  
+  
+}
+
+
+
+#powered{
+  color: ;
+}
+#powered a{
+
+}
+
+
+  #powered a:hover{
+    
+      color: #8a0b85;
+    
+  }
+
+
+
+
+
+
+.social a:hover:before{
+    
+      background-color: #8a0b85;
+    
+    
+}
+
+
+
+
+
+
+
+.toppanel{
+
+
+}
+
+
+.mainmenu > li:hover > a,
+.mainmenu > li:hover{
+    color: #8a0b85;
+}
+
+
+
+#menu {
+	
+		font-family: Ubuntu;
+	
+	
+	
+	
+}
+
+
+.mainmenu > li > a, #megamenu li.item .btn-expand-menu:before {
+	
+	color: #000000;
+	
+	
+		font-size: 21px;
+	
+}
+
+
+  .product-grid .price-fixed, .price-new, .login_page .right .content a{
+    color: #212121;
+  }
+
+
+  .product-grid .price-old{
+    color: #ddd;
+  }
+
+
+  .product-grid .name a{
+    color: #1F1F1F;
+  }
+
+
+
+.sale{
+    background-color: #34477a;
+}
+.sale:after{
+    border-color: #34477a transparent transparent transparent;
+}
+
+
+  .sale{
+    color: #fff;
+  }
+
+
+
+.product-deal-countdown >span >span, .bottom .articles .kbm-date{
+	background-color: #f9f9f9;
+}
+
+
+.product-deal-countdown >span >span{
+	color: #202020;
+}
+
+.product-grid .details a:before, .product-list .details a:before, .product-info .details a:before{
+    
+      color: #1f1f1f;
+    
+    
+      background-color: #f9f9f9;
+    
+}
+.product-grid .details a:hover:before, .product-list .details a:hover:before, .product-info .details a:hover:before{
+    
+      color: #fff;
+    
+    
+      background-color: #303030;
+    
+}
+.product-grid .cart, .product-list .cart, .product-info .details .cart{
+    
+      background-color: #f9f9f9;
+    
+}
+.product-grid .cart a, .product-list .cart a, .product-info .details .cart a, .product-list .details .cart a span{
+    
+      color: #202020;
+    
+}
+.product-grid .cart:hover, .product-list .cart:hover, .product-info .details .cart:hover{
+    
+      background-color: #303030;
+    
+}
+.product-grid .cart:hover a, .product-list .cart:hover a, .product-info .details .cart:hover a, .product-list .details .cart:hover a span {
+    
+      color: #fff;
+    
+}
+
+
+.kt-module {
+	background-image: url(http://kartpro.unystore.com/image/image/data/Final.jpg);
+
+}
+.kt-module .device{
+
+}
+
+button, .button, a.button, #header .checkout a,.read-more{
+    
+        color: #fffdfd;
+    
+    
+        border-color: #c4b5b5;
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:before,
+.jcarousel-skin-opencart .jcarousel-next:before{
+    
+    
+      background-color: #1f1f1f;
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:hover:before,
+.jcarousel-skin-opencart .jcarousel-next:hover:before{
+    
+    
+      background-color: #34477A;
+    
+}
+.button:hover, a.button:hover, #header .checkout a:hover,.read-more:hover{
+    
+      background-color: #8a0b85;
+    
+    
+      color: #000000;
+    
+    
+}

@@ -1,0 +1,668 @@
+@import (reference) "elements";
+/*--------------------------------------------
+Kuler Menu
+----------------------------------------------*/
+@media only screen and (max-width: 1199px) {
+  /*menu for mobile*/
+  .navigation {
+    margin-bottom: 30px;
+    background: none !important;
+  }
+  #btn-mobile-toggle {
+    cursor: pointer;
+    padding: 10px 15px;
+    position: relative;
+    display: block;
+    background: #888;
+    text-transform: uppercase;
+    &:after {
+      .kuler;
+      content: "\e60d";
+      font-size: 22px;
+      position: absolute;
+      right: 15px;
+      top: 11px;
+      .transi;
+    }
+    &.expand:after {
+      .rotation(90deg);
+    }
+  }
+  #menu{
+    .mainmenu{
+      padding-top: 15px;
+      li{
+        padding:0 0 10px;
+      }
+      >li {
+        line-height: 1.2;
+        > a{
+          padding-bottom: 10px;
+          display: block;
+        }
+        ul{
+          padding-left: 15px;
+          border-left: 1px solid #eeeeee;
+          margin-left: 10px;
+        }
+        li{
+          position: relative;
+          &:before{
+            content: '';
+            width: 10px;
+            height: 1px;
+            background-color: #eeeeee;
+            position: absolute;
+            left: -15px;
+            top: 10px;
+          }
+        }
+      }
+    }
+  }
+  #megamenu {
+    display: none;
+    padding: 15px 15px 0;
+    .dropdown-container {
+      display: none;
+      background-color: #fff;
+      padding: 15px;
+    }
+    .dropdown-container .container {
+      padding: 10px 0;
+    }
+    .mainmenu >li:first-child {
+      display: none;
+      margin: 0;
+    }
+    li.item {
+      margin-bottom: 20px;
+      position: relative;
+      vertical-align: top;
+      .clearfix;
+      p{
+        color: #aaa;
+      }
+      >a {
+        font-size: 16px;
+        display: inline-block;
+      }
+      .menu-category-image{
+        margin-right: 15px;
+      }
+      .menu-category-title {
+        display: block;
+        color: #444;
+      }
+      .subcat {
+        margin: 0 !important;
+      }
+      .btn-expand-menu {
+        display: inline-block;
+        width: 100%;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        &:before {
+          .kuler;
+          font-size: 12px;
+          content: "\e602";
+          display: inline-block;
+          .transi;
+        }
+      }
+      &.expand {
+        .btn-expand-menu:before {
+          .rotation(45deg);
+        }
+      }
+    }
+    .product{
+      .hover{
+        display: none;
+      }
+    }
+  }
+}
+/*--------------------------------------------
+Kuler Showcase
+----------------------------------------------*/
+.kuler-showcase-module{
+	margin-bottom: 30px;
+	position: relative;
+	.tab-heading{
+		span{
+			color: #212121;
+         padding: 0 20px;
+			cursor: pointer;
+			.transi;
+         &:after{
+            right: 0;
+         }
+		}
+      span:first-child:before{
+         left: 0;
+      }
+		.active{
+			font-weight: 700;
+		}
+	}
+   @media @lg {
+      .showcase-fullwidth{
+         .container{
+            max-width: 100%;
+         }
+      }
+      .no-padding{
+         .col-lg-2-4{
+            padding-left: 0;
+            padding-right: 0;
+         }
+      }
+   }
+	.nav{
+		span{
+			font-size: 0;
+			position: absolute;
+			top: 15px;
+			right: 0;
+			&:before{
+				content: "\e604";
+				font-size: 8px;
+				color: #ffffff;
+				width: 32px;
+				height: 32px;
+				display: block;
+				line-height: 32px;
+				text-align: center;
+			}
+			&.prev{
+				right: 33px;
+				&:before{
+					content: "\e605";
+				}
+			}
+		}
+	}
+}
+/*--------------------------------------------
+Kuler Deal
+----------------------------------------------*/
+.col-lg-4{
+   .product-deal-countdown{
+      left: 11%;
+   }
+   @media @md {
+      .product-deal-countdown{
+         left: 9%;
+      }
+   }
+   @media @lg {
+      .product-deal-countdown{
+         left: 19%;
+      }
+   }
+}
+.product-deal-countdown{
+   position: absolute;
+   top: 30%;
+   left: 9%;
+   @media @lg {
+      left: 7%;
+   }
+	>span >span{
+		display: inline-block;
+		width: 52px;
+      height: 52px;
+		line-height: .8;
+		text-align: center;
+		border-radius: 100%;
+		padding: 10px 0;
+		margin-right: 8px;
+      font-size: 12px;
+		span{
+			display: block;
+			margin-bottom: 4px;
+			&:first-child{
+				font-size: 20px;
+			}
+		}
+	}
+}
+.showcase{
+	.item.html{
+		padding: 0;
+	}
+	.container{
+		background-color: #fff;
+      >.row{
+         margin-left: 0;
+         margin-right: 0;
+      }
+	}
+}
+.swiper-container {
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+	-webkit-backface-visibility:hidden;
+	-moz-backface-visibility:hidden;
+	-ms-backface-visibility:hidden;
+	-o-backface-visibility:hidden;
+	backface-visibility:hidden;
+	/* Fix of Webkit flickering */
+	z-index:1;
+}
+.swiper-wrapper {
+	position:relative;
+	width:100%;
+	-webkit-transition-property:-webkit-transform, left, top;
+	-webkit-transition-duration:0s;
+	-webkit-transform:translate3d(0px,0,0);
+	-webkit-transition-timing-function:ease;
+
+	-moz-transition-property:-moz-transform, left, top;
+	-moz-transition-duration:0s;
+	-moz-transform:translate3d(0px,0,0);
+	-moz-transition-timing-function:ease;
+
+	-o-transition-property:-o-transform, left, top;
+	-o-transition-duration:0s;
+	-o-transform:translate3d(0px,0,0);
+	-o-transition-timing-function:ease;
+	-o-transform:translate(0px,0px);
+
+	-ms-transition-property:-ms-transform, left, top;
+	-ms-transition-duration:0s;
+	-ms-transform:translate3d(0px,0,0);
+	-ms-transition-timing-function:ease;
+
+	transition-property:transform, left, top;
+	transition-duration:0s;
+	transform:translate3d(0px,0,0);
+	transition-timing-function:ease;
+
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.swiper-free-mode > .swiper-wrapper {
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+	margin: 0 auto;
+}
+.swiper-slide {
+	float: left;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {
+	-ms-touch-action: pan-y;
+}
+.swiper-wp8-vertical {
+	-ms-touch-action: pan-x;
+}
+
+//Your custom styles, here you need to specify container's and slide's sizes, pagination, etc.
+.swiper-container {
+	/* Specify Swiper's Size: */
+	width: 100% !important;
+   height: 100% !important;
+}
+.swiper-slide {
+	/* Specify Slides's Size: */
+	width: 100%;
+	height: 100%;
+	cursor: -webkit-grab;
+}
+.swiper-slide-active {
+	/* Specific active slide styling: */
+}
+.swiper-slide-visible {
+	/* Specific visible slide styling: */
+
+}
+//Pagination Styles
+.kuler-pagination{
+   text-align: center;
+   .swiper-pagination-switch {
+       display: inline-block;
+       width: 10px;
+       height: 10px;
+       margin: 0 3px;
+       cursor: pointer;
+      .box-shadow(none);
+      .rounded(0);
+       background: #dddddd;
+   }
+   .swiper-active-switch{
+      background: #222;
+   }
+}
+
+.swiper-visible-switch {
+	/* Specific visible button style: */
+
+}
+/*--------------------------------------------
+Kuler Testimonial
+----------------------------------------------*/
+.kt-module{
+   @media @lg {
+      background: center no-repeat fixed;
+   }
+   background-size: cover;
+   padding: 100px 0 65px;
+   margin: 0 -100%;
+   .device{
+      border: none;
+      width: 900px;
+      height: auto;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+      font-size: 18px;
+      color: black;
+   }
+   .swiper-slide{
+      width: 900px !important;
+      height: auto !important;
+      img{
+         .rounded(100%);
+         margin-bottom: 30px;
+      }
+   }
+   .swiper-wrapper{
+      height: auto !important;
+   }
+   .swiper-horizontal,
+   .swiper-container{
+      width: auto;
+      height: auto;
+   }
+   .swiper-container{
+      padding-bottom: 40px;
+   }
+   .slide-content{
+      font-size: 32px;
+   }
+   .writer_name{
+      display: block;
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: 700;
+   }
+   .swiper-pagination-switch{
+      .box-shadow(none);
+      background: none;
+   }
+   .swiper-active-switch{
+      border-color: #FFFFFF;
+   }
+}
+/*--------------------------------------------
+Kuler Blog Manager
+----------------------------------------------*/
+.blog-feed{
+  display: none;
+}
+/*article list*/
+.article-list{
+  .article:first-child{
+    padding: 0 30px 30px;
+  }
+}
+/*recent article*/
+#content .articles {
+  margin-bottom: 70px;
+  li {
+    text-align: center;
+    .image {
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 15px;
+    }
+    a{
+      display: block;
+      font-size: 18px;
+      padding-bottom: 10px;
+      color: @main_text_skin1;
+    }
+    img{
+      .transi;
+    }
+    span{
+      color: #888;
+      font-size: 16px;
+      padding-top: 10px;
+    }
+  }
+  li:hover img {
+    -webkit-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+  }
+}
+.kbm-recent-article{
+  .articles-description{
+    margin-top: 80px;
+    .article-title{
+      font-size: 24px;
+      letter-spacing: 2px;
+      color: #1F1F1F;
+    }
+    p{
+      margin: 15px 0 25px;
+    }
+    .read-more{
+      .button-custom;
+    }
+    a.read-more:hover{
+      .bot-from-top;
+    }
+  }
+}
+/*related articles*/
+.related-articles {
+  ul{
+    margin: 0;
+    width: auto;
+    li{
+      margin: 0 0 5px 20px;
+      list-style: circle;
+    }
+    a{
+      font-size: 14px !important;
+    }
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222222;
+  }
+}
+/*sidebar settings*/
+.col-md-4{
+  .articles{
+    li {
+      a{
+        display: block;
+      }
+      p{
+        padding: 0 0 15px;
+        margin: 0;
+        font-size: 13px;
+      }
+    }
+  }
+}
+.article {
+  display: inline-block;
+  vertical-align: top;
+  padding: 30px;
+  background-color: #fff;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  .read-more {
+    text-align: left;
+    padding: 7px 15px;
+    display: inline-block;
+    clear: both;
+    color: #fff;
+  }
+  .article-image{
+    margin-left: 60px;
+    float: right !important;
+  }
+  .article-read-more{
+    float: left;
+  }
+}
+.article-list + .pagination,
+.comment-list + .pagination {
+  border: none;
+  padding: 0;
+}
+.comment-container {
+  padding: 0;
+}
+.comment-stats {
+  padding: 10px 20px;
+  background-color: #EEEEEE;
+  font-weight: 600;
+  font-size: 18px;
+}
+.article-extra-info {
+  font-size: 0;
+  color: #222;
+  margin-bottom: 10px;
+  time,a{
+    font-size: 13px;
+    margin-right: 15px;
+    font-weight: 300;
+  }
+  .author:before {
+    .kulerfont;
+    content: "\e60e";
+    font-size: 14px;
+    margin-right: 3px;
+    color:@primary_text_color;
+  }
+  .category:before {
+    .kulerfont;
+    content: "\e610";
+    font-size: 14px;
+    margin-right: 5px;
+    color:@primary_text_color;
+  }
+}
+.comment-stats:before {
+  .kulerfont;
+  content: "\e612";
+  margin-right: 3px;
+  color:@primary_text_color;
+}
+.article-extra-info time:before {
+  .kulerfont;
+  content: "\e60c";
+  font-size: 14px;
+  margin-right: 3px;
+  color:@primary_text_color;
+}
+.comment-list .comment {
+  padding: 0;
+  margin: 0;
+}
+.author-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.article-header {
+  h2 {
+    margin-bottom: 10px;
+    text-transform: none;
+    font-size: 24px;
+    font-weight: 400;
+    a{
+      color: @primary_text_color;
+    }
+  }
+}
+.article-content p{
+  color: @primary_text_color;
+}
+.kbm-latest-comment ul,
+.kbm-latest-comment li {
+  margin: 0;
+}
+.kbm-latest-comment li {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #EEEEEE;
+}
+.kbm-latest-comment li a {
+  color: #444;
+}
+.comment-container {
+  background-color: transparent;
+}
+#form-comment .validator input,
+#form-comment .validator img{
+  vertical-align: middle;
+}
+.comment-container{
+  padding: 0 !important;
+  background: none !important;
+}
+#form-comment{
+  td{
+    padding: 10px 10px 10px 0;
+  }
+}
+//Blog in Footer Extra Info
+.bottom{
+   .kbm-recent-article{
+      .articles{
+         >li{
+            display: block;
+            width: 100%;
+            a{
+               position: relative;
+               padding-left: 70px;
+            }
+            .kbm-date{
+               position: absolute;
+               top: 0;
+               display: block;
+               width: 52px;
+               height: 52px;
+               line-height: 1;
+               font-size: 16px;
+               border-radius: 100%;
+               padding-top: 8px;
+               text-align: center;
+               color: #212121;
+               >span{
+                  display: block;
+               }
+            }
+            .author a{
+               color: #888888;
+            }
+         }
+      }
+   }
+}
+.sidebar{
+   .articles{
+      .author{
+         display: none;
+      }
+   }
+}

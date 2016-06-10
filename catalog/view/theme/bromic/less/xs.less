@@ -1,0 +1,159 @@
+@import (reference) "elements.less";
+@import (reference) "variables.less";
+@import (reference) "common.less";
+.container{
+   max-width: 320px;
+}
+[class*="col"]{
+   margin-bottom: 15px;
+}
+h1, h2, h3, h4, h5, h6{
+   margin-bottom: 15px;
+}
+//Checkout
+#top-bar, #header{
+   #cart{
+      .content{
+         padding: 60px 100% 30px;
+         margin: 0 -100%;
+      }
+   }
+   .mini-cart-info{
+      padding-left: 50px;
+      .image, .name{
+         text-align: center;
+      }
+   }
+   .checkout{
+      padding-left: 52px;
+      .view, .check{
+         padding: 7px 5px;
+      }
+   }
+}
+#megamenu{
+   background: #ddd;
+}
+//header//
+.skin3 #header,
+.skin3 #top-bar,
+.skin5 #header,
+.skin5 #top-bar{
+   .links >div{
+      left: -150px;
+   }
+}
+#search{
+   top: 5px;
+   right: 3px;
+   input{
+      width: 260px;
+      opacity: 1;
+      font-size: 16px;
+   }
+}
+#btn-mobile-toggle{
+   margin-top: 60px;
+}
+#cart{
+   padding: 5px 0;
+}
+//Beardcrumb
+.breadcrumb{
+   [class*="col"]{
+      text-align: left;
+   }
+}
+//Product Info
+.product-info {
+   .details {
+      .cart a {
+         padding: 0;
+      }
+      a:before {
+         width: 55px;
+      }
+   }
+}
+#tabs a{
+   padding: 10px;
+}
+//Carousel
+.jcarousel-skin-opencart {
+   .jcarousel-container {
+      .jcarousel-prev, .jcarousel-next {
+         opacity: 1;
+      }
+   }
+}
+//Sale
+.col-lg-4{
+   .sale{
+      top: 55%;
+   }
+}
+//Skin1
+.skin1{
+  #top-bar{
+    .links{
+      text-align: left;
+    }
+  }
+  #logo{
+    text-align: center;
+  }
+  #cart{
+    text-align: center;
+  }
+  .top-banner-skin3 .col-md-6{
+    margin-bottom: 0;
+  }
+}
+//Skin 3, 4
+.skin3.home,
+.skin4.home{
+   #header{
+      position: relative;
+   }
+}
+.skin3,
+.skin4{
+   #header{
+      #search{
+         top: 20px;
+         right: 3%;
+      }
+      .links{
+         margin-top: 0;
+         &:hover >div{
+            left: -175px;
+         }
+      }
+      #logo{
+         text-align: center;
+         padding-top: 20px;
+      }
+   }
+}
+//Skin 5, 6
+.skin5,
+.skin6{
+  #top-bar{
+    .links i{
+      display: none;
+    }
+    #welcome a{
+      font-size: 18px;
+    }
+  }
+  #cart .heading{
+    text-align: center;
+  }
+  .ship{
+    text-align: center;
+  }
+}
+//Custom
+.ship{
+   padding: 20px 0;
+}

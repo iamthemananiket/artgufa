@@ -1,0 +1,15 @@
+---------- Date: 2016-03-15 09:31:13 ~ IP : 106.51.23.12 ----------
+REQUEST URI : /admin/index.php?route=module/kuler_contact_form&amp;token=9bd16e86f34746a7aad37b5cdd4472e8
+MOD DETAILS:
+   modFile   : /home/rocket/public_html/clients/siddharth_jain/vqmod/xml/kulerthemes_cp.xml
+   id        : KulerThemes
+   version   : 
+   vqmver    : 
+   author    : kulerthemes.com
+
+File Name    : admin/view/template/module/*.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): html += '      <option value="content_top"><?php echo $text_content_top; ?></option>';
+
+----------------------------------------------------------------------
+
+

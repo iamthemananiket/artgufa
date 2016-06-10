@@ -1,0 +1,362 @@
+/* Layout */
+
+/* Custom Notification */
+
+
+/* Scroll up */
+
+.scrollup {
+	z-index: 2;
+	position: fixed;
+	right: 50px;
+}
+
+
+/* Style Customization */
+
+.scrollup,
+.kuler-accordion .item-title.selected,
+button, .button, a.button,
+#header .checkout a,
+.read-more,
+#tabs a.selected,
+#top-bar .checkout .view:hover,
+#top-bar .checkout .check:hover,
+.pagination .links a:hover,
+.pagination .links b{
+	background-color: #212121;
+}
+
+
+
+  #container{
+    background-color: #fff;
+  }
+
+
+
+    a,a:visited,
+    .mainmenu > li a,
+    #top-bar a{
+        color: #1F1F1F;
+    }
+
+
+
+
+
+
+  body {
+    
+      font-family: "Josefin Slab";
+    
+    
+    
+    
+    
+    
+      color: #1f1f1f;
+    
+  }
+  .kuler-tabs,.kuler-slides,
+  #header .checkout a,
+  .cart-total + .buttons a,
+  .ui-widget{
+  
+    font-family: "Josefin Slab";
+  
+}
+
+
+
+h1,h2,h3,h4,h5,h6,.box-heading {
+  
+    font-family: "Josefin Slab";
+  
+  
+  
+  
+}
+
+
+
+
+
+
+  #top-bar{
+  
+    background-color: rgba(255, 252, 252, 1);
+  
+  }
+
+
+
+  #top-bar a,
+  #top-bar .extra .dropdown-toggle{
+    
+      color: #000000;
+    
+  }
+
+
+
+  #top-bar a:hover{
+    
+      color: #FFFFFF;
+    
+  }
+
+
+
+  #top-bar{
+    
+      color: #000000;
+    
+  }
+
+
+
+
+
+#header{
+    
+}
+
+
+  #header{
+  
+    background-color: rgba(255, 255, 255, 1);
+  
+  }
+
+
+  #header #search input{
+    border-color: rgba(255, 0, 0, 1);
+  }
+
+
+  #header #search input{
+    background-color: rgba(255, 0, 0, 1);
+  }
+
+
+#header #cart .content, #top-bar #cart .content{
+    
+}
+
+#header #cart #cart-total:before, #top-bar #cart #cart-total:before{
+    
+    
+      color: rgba(209, 25, 25, 1);
+    
+}
+
+
+.bottom,.social-newsletter{
+  
+    background-color: #212121;
+  
+}
+
+
+.social-newsletter .container,.bottom{
+    
+}
+
+.bottom,.social-newsletter{
+    
+    
+      color: #ffffff;
+    
+}
+
+
+
+
+  .bottom h3, .bottom .box-heading{
+    
+      color: #fff;
+    
+  }
+  .bottom h3:after,
+  .bottom h3:after{
+    background-color: #fff;
+  }
+
+
+
+  .bottom a{
+    
+      color: #ffffff;
+    
+  }
+
+
+
+
+#powered{
+  
+  
+}
+
+
+
+#powered{
+  color: ;
+}
+#powered a{
+
+}
+
+
+
+
+
+
+
+.social a:hover:before{
+    
+    
+}
+
+
+
+
+
+
+
+.toppanel{
+
+
+}
+
+
+
+
+#menu {
+	
+		font-family: "Josefin Sans";
+	
+	
+	
+	
+}
+
+
+.mainmenu > li > a, #megamenu li.item .btn-expand-menu:before {
+	
+	color: #000000;
+	
+	
+}
+
+
+  .product-grid .price-fixed, .price-new, .login_page .right .content a{
+    color: #212121;
+  }
+
+
+  .product-grid .price-old{
+    color: #ddd;
+  }
+
+
+  .product-grid .name a{
+    color: #1F1F1F;
+  }
+
+
+
+.sale{
+    background-color: #34477a;
+}
+.sale:after{
+    border-color: #34477a transparent transparent transparent;
+}
+
+
+  .sale{
+    color: #fff;
+  }
+
+
+
+.product-deal-countdown >span >span, .bottom .articles .kbm-date{
+	background-color: #f9f9f9;
+}
+
+
+.product-deal-countdown >span >span{
+	color: #202020;
+}
+
+.product-grid .details a:before, .product-list .details a:before, .product-info .details a:before{
+    
+      color: #1f1f1f;
+    
+    
+      background-color: #f9f9f9;
+    
+}
+.product-grid .details a:hover:before, .product-list .details a:hover:before, .product-info .details a:hover:before{
+    
+      color: #fff;
+    
+    
+      background-color: #303030;
+    
+}
+.product-grid .cart, .product-list .cart, .product-info .details .cart{
+    
+      background-color: #f9f9f9;
+    
+}
+.product-grid .cart a, .product-list .cart a, .product-info .details .cart a, .product-list .details .cart a span{
+    
+      color: #202020;
+    
+}
+.product-grid .cart:hover, .product-list .cart:hover, .product-info .details .cart:hover{
+    
+      background-color: #303030;
+    
+}
+.product-grid .cart:hover a, .product-list .cart:hover a, .product-info .details .cart:hover a, .product-list .details .cart:hover a span {
+    
+      color: #fff;
+    
+}
+
+
+}
+.kt-module .device{
+
+}
+
+button, .button, a.button, #header .checkout a,.read-more{
+    
+        color: #fff;
+    
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:before,
+.jcarousel-skin-opencart .jcarousel-next:before{
+    
+    
+      background-color: #1f1f1f;
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:hover:before,
+.jcarousel-skin-opencart .jcarousel-next:hover:before{
+    
+    
+      background-color: #34477A;
+    
+}
+.button:hover, a.button:hover, #header .checkout a:hover,.read-more:hover{
+    
+      background-color: #212121;
+    
+    
+    
+}

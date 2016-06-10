@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>jOS Send SMS</id>
+	<version>1.0.3</version>
+	<vqmver>2.X</vqmver>
+	<author>hardcoder69</author>
+	<file name="admin/controller/common/header.php">
+		<operation>
+			<search position="after"><![CDATA[$this->data['zone'] = $this->url->link('localisation/zone', 'token=' . $this->session->data['token'], 'SSL');]]></search>
+			<add><![CDATA[$this->data['jossendsms'] = $this->url->link('module/jossendsms', 'token=' . $this->session->data['token'], 'SSL');]]></add>
+		</operation>
+	</file>
+
+	<file name="admin/view/template/common/header.tpl">
+		<operation error="skip">
+			<search position="after">
+				<![CDATA[<li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>]]>
+			</search>
+			<add><![CDATA[<li><a href="<?php echo $jossendsms; ?>">jOS Send SMS</a></li>]]></add>
+		</operation>
+	</file>
+	
+	<file name="admin/model/sale/order.php">
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[public function getTotalEmailsByProductsOrdered($products) {]]>
+			</search>
+			<add><![CDATA[
+				public function getNohpByProductsOrdered($products, $start, $end) {
+					$implode = array();
+					
+					foreach ($products as $product_id) {
+						$implode[] = "op.product_id = '" . $product_id . "'";
+					}
+					
+					$query = $this->db->query("SELECT DISTINCT telephone,payment_country_id FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_product op ON (o.order_id = op.order_id) WHERE (" . implode(" OR ", $implode) . ") AND o.order_status_id <> '0'");
+				
+					return $query->rows;
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/model/setting/setting.php">
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[public function getSetting($group, $store_id = 0) {]]>
+			</search>
+			<add><![CDATA[
+				public function joseditSetting($group, $data, $store_id = 0) {
+					
+					foreach ($data as $key => $value) {
+						if (!is_array($value)) {
+							$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `group` = '" . $this->db->escape($group) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape($value) . "'");
+						} else {
+							$this->db->query("INSERT INTO " . DB_PREFIX . "setting SET store_id = '" . (int)$store_id . "', `group` = '" . $this->db->escape($group) . "', `key` = '" . $this->db->escape($key) . "', `value` = '" . $this->db->escape(serialize($value)) . "', serialized = '1'");
+						}
+					}
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="admin/view/template/sale/order_info.tpl">
+		<operation error="skip">
+			<search position="replace">
+				<![CDATA[<td><input type="checkbox" name="notify" value="1" /></td>]]>
+			</search>
+			<add><![CDATA[
+				<td><input type="checkbox" name="notify" value="1" /></td>
+				</tr>
+				<tr>
+        	<td>Notify by SMS</td>
+        	<td><input type="checkbox" name="notifysms" value="0" /></td>
+        </tr>
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="admin/view/template/sale/order_info.tpl">
+		<operation error="skip">
+			<search position="replace">
+				<![CDATA[data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + encodeURIComponent($('input[name=\'notify\']').attr('checked') ? 1 : 0) + '&append=' + encodeURIComponent($('input[name=\'append\']').attr('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),]]>
+			</search>
+			<add><![CDATA[data: 'order_status_id=' + encodeURIComponent($('select[name=\'order_status_id\']').val()) + '&notify=' + encodeURIComponent($('input[name=\'notify\']').attr('checked') ? 1 : 0) + '&notifysms=' + encodeURIComponent($('input[name=\'notifysms\']').attr('checked') ? 1 : 0) + '&append=' + encodeURIComponent($('input[name=\'append\']').attr('checked') ? 1 : 0) + '&comment=' + encodeURIComponent($('textarea[name=\'comment\']').val()),]]></add>
+		</operation>
+	</file>
+	
+	<file name="admin/controller/sale/order.php">
+		<operation error="skip">
+			<search position="after">
+				<![CDATA[if (!$this->data['error']) {]]>
+			</search>
+			<add><![CDATA[
+				$storename = $this->config->get('config_name');
+				$lang_code = $this->config->get('config_language');
+				$lang_que = $this->db->query("SELECT language_id FROM " . DB_PREFIX . "language WHERE code = '" . $lang_code . "'");
+				$lang_id = $lang_que->row['language_id'];
+				$datahp = $this->model_sale_order->getOrder($this->request->get['order_id']);
+				$order_status = $this->request->post['order_status_id'];
+				$comment = $this->db->escape(strip_tags($this->request->post['comment']));
+				$query = $this->db->query("SELECT `name` FROM " . DB_PREFIX . "order_status WHERE order_status_id = '" . (int)$order_status . "' AND language_id= '" . (int)$lang_id . "'");
+				$state = $query->row['name'];
+				$invoice = $datahp['invoice_prefix'].''.$datahp['invoice_no'];
+				$message_changestate = $this->config->get('message_changestate_'.$order_status);
+				
+				if ($this->request->post['notifysms'] == 1 && $message_changestate != "") {
+					$gateway = $this->config->get('gateway');
+					$parsing = array ( '{firstname}', '{lastname}', '{orderid}', '{orderstatus}', '{shippingmethod}', '{invoiceno}', '{total}', '{comment}', '{storename}' );
+					$replace = array ( $datahp['firstname'], $datahp['lastname'], $datahp['order_id'], $state, $datahp['shipping_method'], $invoice, $this->currency->format($datahp['total'], '', $datahp['currency_value']), $comment, $storename );
+					$pesan = str_replace( $parsing, $replace, $message_changestate );
+					$this->load->model('libraries/jossms');
+					$query = $this->db->query("SELECT `iso_code_2` FROM " . DB_PREFIX . "country WHERE country_id = '" . (int)$datahp['payment_country_id'] . "'");
+					$isoc = $query->row['iso_code_2'];
+					$phone_number = $this->model_libraries_jossms->getConvertPhonePrefix($datahp['telephone'],$isoc);
+					$getresponse = $this->model_libraries_jossms->send_message($phone_number, $pesan, $gateway);
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/model/checkout/order.php">
+		<operation error="skip">
+			<search position="after" offset="1">
+				<![CDATA[$order_status = '';]]>
+			</search>
+			<add><![CDATA[
+			// Send SMS
+				$message_order = $this->config->get('message_order');
+				$message_order_toadmin = $this->config->get('config_alert_sms');
+				$storename = $this->config->get('config_name');
+				$produk = '';
+				
+				foreach ($order_product_query->rows as $product) {
+					$produk .= $product['quantity'] . 'x ' . $product['name'] . ' (' . $product['model'] . ') ' . html_entity_decode($this->currency->format($product['total'] + ($this->config->get('config_tax') ? ($product['tax'] * $product['quantity']) : 0), $order_info['currency_code'], $order_info['currency_value']), ENT_NOQUOTES, 'UTF-8') . '\r\n';
+					
+					$order_option_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_option WHERE order_id = '" . (int)$order_id . "' AND order_product_id = '" . $product['order_product_id'] . "'");
+					
+					foreach ($order_option_query->rows as $option) {
+						if ($option['type'] != 'file') {
+							$value = $option['value'];
+						} else {
+							$value = utf8_substr($option['value'], 0, utf8_strrpos($option['value'], '.'));
+						}
+											
+						$produk .= chr(9) . '-' . $option['name'] . ' ' . (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value) . '\r\n';
+					}
+				}
+				
+				foreach ($order_total_query->rows as $total) {
+					$totalnya = html_entity_decode($total['text'], ENT_NOQUOTES, 'UTF-8');
+				}
+					
+				if($message_order != ""){
+					$this->load->model('libraries/jossms');
+					$gateway = $this->config->get('gateway');
+					
+					$parsing = array ( 
+						'{order_date}',
+						'{products_ordered}',
+						'{firstname}',
+						'{lastname}',
+						'{email}',
+						'{telephone}',
+						'{orderid}',
+						'{orderstatus}',
+						'{shippingmethod}',
+						'{shipping_firstname}',
+						'{shipping_lastname}',
+						'{shipping_company}',
+						'{shipping_address}',
+						'{shipping_city}',
+						'{shipping_postcode}',
+						'{shipping_state}',
+						'{shipping_country}',
+						'{paymentmethod}',
+						'{payment_firstname}',
+						'{payment_lastname}',
+						'{payment_company}',
+						'{payment_address}',
+						'{payment_city}',
+						'{payment_postcode}',
+						'{payment_state}',
+						'{payment_country}',
+						'{total}',
+						'{comment}',
+						'{storename}'
+					);
+					$replace = array (
+						date($language->get('date_format_short'), strtotime($order_info['date_added'])),
+						$produk,
+						$order_info['firstname'],
+						$order_info['lastname'],
+						$order_info['email'],
+						$order_info['telephone'],
+						$order_info['order_id'],
+						$order_status,
+						$order_info['shipping_method'],
+						$order_info['shipping_firstname'],
+						$order_info['shipping_lastname'],
+						$order_info['shipping_company'],
+						$order_info['shipping_address_1']." ".$order_info['shipping_address_2'],
+						$order_info['shipping_city'],
+						$order_info['shipping_postcode'],
+						$order_info['shipping_zone'],
+						$order_info['shipping_country'],
+						$order_info['payment_method'],
+						$order_info['payment_firstname'],
+						$order_info['payment_lastname'],
+						$order_info['payment_company'],
+						$order_info['payment_address_1']." ".$order_info['payment_address_2'],
+						$order_info['payment_city'],
+						$order_info['payment_postcode'],
+						$order_info['payment_zone'],
+						$order_info['payment_country'],
+						$totalnya,
+						$order_info['comment'],
+						$storename
+					);
+					
+					$pesan = str_replace( $parsing, $replace, $message_order );
+					
+					$query = $this->db->query("SELECT `iso_code_2` FROM " . DB_PREFIX . "country WHERE country_id = '" . (int)$order_info['payment_country_id'] . "'");
+					$isoc = $query->row['iso_code_2'];
+					$phone_number = $this->model_libraries_jossms->getConvertPhonePrefix($order_info['telephone'],$isoc);
+					$getresponse = $this->model_libraries_jossms->send_message($phone_number, $pesan, $gateway);
+				}
+				
+				if ($message_order_toadmin != "") {
+					$this->load->model('libraries/jossms');
+					$gateway = $this->config->get('gateway');
+					$countryid = $this->config->get('config_country_id');
+					
+					$parsing = array ( 
+						'{order_date}',
+						'{products_ordered}',
+						'{firstname}',
+						'{lastname}',
+						'{email}',
+						'{telephone}',
+						'{orderid}',
+						'{orderstatus}',
+						'{shippingmethod}',
+						'{shipping_firstname}',
+						'{shipping_lastname}',
+						'{shipping_company}',
+						'{shipping_address}',
+						'{shipping_city}',
+						'{shipping_postcode}',
+						'{shipping_state}',
+						'{shipping_country}',
+						'{paymentmethod}',
+						'{payment_firstname}',
+						'{payment_lastname}',
+						'{payment_company}',
+						'{payment_address}',
+						'{payment_city}',
+						'{payment_postcode}',
+						'{payment_state}',
+						'{payment_country}',
+						'{total}',
+						'{comment}',
+						'{storename}'
+					);
+					$replace = array (
+						date($language->get('date_format_short'), strtotime($order_info['date_added'])),
+						$produk,
+						$order_info['firstname'],
+						$order_info['lastname'],
+						$order_info['email'],
+						$order_info['telephone'],
+						$order_info['order_id'],
+						$order_status,
+						$order_info['shipping_method'],
+						$order_info['shipping_firstname'],
+						$order_info['shipping_lastname'],
+						$order_info['shipping_company'],
+						$order_info['shipping_address_1']." ".$order_info['shipping_address_2'],
+						$order_info['shipping_city'],
+						$order_info['shipping_postcode'],
+						$order_info['shipping_zone'],
+						$order_info['shipping_country'],
+						$order_info['payment_method'],
+						$order_info['payment_firstname'],
+						$order_info['payment_lastname'],
+						$order_info['payment_company'],
+						$order_info['payment_address_1']." ".$order_info['payment_address_2'],
+						$order_info['payment_city'],
+						$order_info['payment_postcode'],
+						$order_info['payment_zone'],
+						$order_info['payment_country'],
+						$totalnya,
+						$order_info['comment'],
+						$storename
+					);
+					
+					$pesan = str_replace( $parsing, $replace, $message_order_toadmin );
+					
+					$query = $this->db->query("SELECT `iso_code_2` FROM " . DB_PREFIX . "country WHERE country_id = '" . (int)$countryid . "'");
+					$isoc = $query->row['iso_code_2'];
+					$phone_number = $this->model_libraries_jossms->getConvertPhonePrefix($this->config->get('config_telephone'),$isoc);
+					$getresponse = $this->model_libraries_jossms->send_message($phone_number, $pesan, $gateway);
+					
+					$nohps = explode(',', $this->config->get('message_alert'));
+					foreach ($nohps as $nohp) {
+						if ($nohp) {
+							$phone_number = $this->model_libraries_jossms->getConvertPhonePrefix($nohp,$isoc);
+							$getresponse = $this->model_libraries_jossms->send_message($phone_number, $pesan, $gateway);
+						}
+					}
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/model/account/customer.php">
+		<operation error="skip">
+			<search position="after">
+				<![CDATA[$this->load->model('account/customer_group');]]>
+			</search>
+			<add><![CDATA[
+				$message_reg = $this->config->get('message_reg');
+				$message_reg_toadmin = $this->config->get('config_account_sms');
+				$storename = $this->config->get('config_name');
+				if($message_reg != ""){
+					$this->load->model('libraries/jossms');
+					$gateway = $this->config->get('gateway');
+					$parsing = array ( '{firstname}', '{lastname}', '{email}', '{password}', '{telephone}', '{storename}' );
+					$replace = array ( $this->db->escape($data['firstname']), $this->db->escape($data['lastname']), $this->db->escape($data['email']), $this->db->escape($data['password']), $this->db->escape($data['telephone']), $storename );
+					$pesan = str_replace( $parsing, $replace, $message_reg );
+					
+					$query = $this->db->query("SELECT `iso_code_2` FROM " . DB_PREFIX . "country WHERE country_id = '" . (int)$data['country_id'] . "'");
+					$isoc = $query->row['iso_code_2'];
+					
+					$phone_number = $this->model_libraries_jossms->getConvertPhonePrefix($this->db->escape($data['telephone']),$isoc);
+					$getresponse = $this->model_libraries_jossms->send_message($phone_number, $pesan, $gateway);
+				}
+				
+				if ($message_reg_toadmin != "") {
+					$this->load->model('libraries/jossms');
+					$gateway = $this->config->get('gateway');
+					$countryid = $this->config->get('config_country_id');
+					//$pesan = 'New Register Alert! Name:'.$this->db->escape($data['firstname']).' '.$this->db->escape($data['lastname']).', Email:'.$this->db->escape($data['email']);
+					$parsing = array ( '{firstname}', '{lastname}', '{email}', '{telephone}', '{storename}' );
+					$replace = array ( $this->db->escape($data['firstname']), $this->db->escape($data['lastname']), $this->db->escape($data['email']), $this->db->escape($data['telephone']), $storename );
+					$pesan = str_replace( $parsing, $replace, $message_reg_toadmin );
+					
+					$query = $this->db->query("SELECT `iso_code_2` FROM " . DB_PREFIX . "country WHERE country_id = '" . (int)$countryid . "'");
+					$isoc = $query->row['iso_code_2'];
+					$phone_number = $this->model_libraries_jossms->getConvertPhonePrefix($this->config->get('config_telephone'),$isoc);
+					$getresponse = $this->model_libraries_jossms->send_message($phone_number, $pesan, $gateway);
+					
+					$nohps = explode(',', $this->config->get('message_alert'));
+					foreach ($nohps as $nohp) {
+						if ($nohp) {
+							$phone_number = $this->model_libraries_jossms->getConvertPhonePrefix($nohp,$isoc);
+							$getresponse = $this->model_libraries_jossms->send_message($phone_number, $pesan, $gateway);
+						}
+					}
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/language/english/account/register.php">
+		<operation error="skip">
+			<search position="replace">
+				<![CDATA[$_['entry_telephone']      = 'Telephone:';]]>
+			</search>
+			<add><![CDATA[
+				$_['entry_telephone']      = 'Telephone:<br /><span class="help">Input mobile number.</span>';
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/view/theme/*/template/account/register.tpl">
+		
+		<operation error="skip">
+			<search position="replace">
+				<![CDATA[<td><input type="text" name="telephone" value="<?php echo $telephone; ?>" />]]>
+			</search>
+			<add><![CDATA[
+				<td><input type="text" name="telephone" value="<?php echo $telephone; ?>" maxlength="12" onkeyup="this.value = this.value.replace (/\D+/, '')" />
+			]]></add>
+		</operation>
+		
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[<?php if ($text_agree) { ?>]]>
+			</search>
+			<add><![CDATA[
+				<!--// Add from vqmod -->
+		    <div id="continue">
+		    <!--//  -->
+			]]></add>
+		</operation>
+		
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[</form>]]>
+			</search>
+			<add><![CDATA[
+				<!--// Add from vqmod -->
+		  	</div>
+		  	<div class="verify"><?php echo $verify; ?></div>
+		  	<!--//  -->
+			]]></add>
+		</operation>
+		
+	</file>
+	
+	<file name="catalog/view/theme/*/template/account/forgotten.tpl">
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[<div class="buttons">]]>
+			</search>
+			<add><![CDATA[
+				<!--// Add from vqmod -->
+		    <div id="continue">
+		    <!--//  -->
+			]]></add>
+		</operation>
+		
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[</form>]]>
+			</search>
+			<add><![CDATA[
+				<!--// Add from vqmod -->
+		  	</div>
+		  	<div class="verify"><?php echo $verify; ?></div>
+		  	<!--//  -->
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/language/english/checkout/checkout.php">
+		<operation error="skip">
+			<search position="replace">
+				<![CDATA[$_['entry_telephone']                = 'Telephone:';]]>
+			</search>
+			<add><![CDATA[
+				$_['entry_telephone']      = 'Telephone:<br /><span class="help">Input mobile number</span>';
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/checkout/confirm.php">
+		<operation error="skip">
+			<search position="replace">
+				<![CDATA[$this->data['payment'] = $this->getChild('payment/' . $this->session->data['payment_method']['code']);]]>
+			</search>
+			<add><![CDATA[
+				$verified = 0;
+				$groupid = 0;
+				
+				if ($this->customer->isLogged()) {
+					$groupid = $this->customer->getCustomerGroupId();
+				}
+				
+				if (isset($this->session->data['phone_verified'])) {
+					$verified = $this->session->data['phone_verified'];
+				}
+				
+				$bypass_group = $this->config->get('skip_group_id');
+				if ($bypass_group){
+					if (@in_array($groupid,$bypass_group) && !@in_array(0,$bypass_group)) {
+						$verified = 1;
+					}
+				}
+				
+				// Skip verification if payment method is in data
+				$payment_method = $this->session->data['payment_method']['code'];
+				$bypass_payment_method = $this->config->get('skip_payment_method');
+				if ($bypass_payment_method){
+					if (@in_array($payment_method,$bypass_payment_method) && !@in_array("none",$bypass_payment_method)){
+						$verified = 1;
+					}
+				}			
+				
+				if (!$verified && $this->config->get('verify') == 1 && $this->config->get('order_verify') == 1) {
+					$this->data['payment'] = $this->getChild('module/jossmsverify');
+				} else {
+					if ($verified == 2) {
+						$this->data['payment'] = "This transaction cannot be completed...";
+					}	else {
+						unset($this->session->data['phone_verified']);
+						$this->data['payment'] = $this->getChild('payment/' . $this->session->data['payment_method']['code']);
+					}
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/account/register.php">
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/register.tpl')) {]]>
+			</search>
+			<add><![CDATA[
+				// Add from vqmod
+				$verified = 0;
+				if (!$verified && $this->config->get('verify') == 1 && $this->config->get('register_verify') == 1) {
+					$this->data['verify'] = $this->getChild('module/jossmsregisterverify');
+				}else{
+					unset($this->session->data['register_phone_verified']);
+					$this->data['verify'] = "";
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+	<file name="catalog/controller/account/forgotten.php">
+		<operation error="skip">
+			<search position="before">
+				<![CDATA[if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/account/forgotten.tpl')) {]]>
+			</search>
+			<add><![CDATA[
+				// Add from vqmod
+				$verified = 0;
+				if (!$verified && $this->config->get('verify') == 1 && $this->config->get('forgotten_verify') == 1) {
+				//if (!$verified && $this->config->get('verify') == 1) {
+					$this->data['verify'] = $this->getChild('module/jossmsforgotpwdverify');
+				}else{
+					unset($this->session->data['forgotten_phone_verified']);
+					$this->data['verify'] = "";
+				}
+			]]></add>
+		</operation>
+	</file>
+	
+</modification>

@@ -1,0 +1,343 @@
+/* Layout */
+
+  @media only screen and (min-width: 100em) {
+      .boxed #container {
+        max-width: calc(1170px + 60px);
+      }
+      .container{
+        max-width:  1170px;
+      }
+    }
+
+/* Custom Notification */
+
+
+/* Scroll up */
+
+.scrollup {
+	z-index: 2;
+	position: fixed;
+	right: 50px;
+}
+
+
+/* Style Customization */
+
+.scrollup,
+.kuler-accordion .item-title.selected,
+button, .button, a.button,
+#header .checkout a,
+.read-more,
+#tabs a.selected,
+#top-bar .checkout .view:hover,
+#top-bar .checkout .check:hover,
+.pagination .links a:hover,
+.pagination .links b{
+	background-color: #EACAA6;
+}
+
+
+
+  #container{
+    background-color: #fff;
+  }
+
+
+
+    a,a:visited,
+    .mainmenu > li a,
+    #top-bar a{
+        color: #212121;
+    }
+
+
+
+
+
+  body {
+      background-image: url(http://localhost/opc1564/bromic/image/data/bromic/body/body_bg_skin5.jpg);
+      
+        background-repeat: repeat-y;
+      
+      
+      
+  }
+
+
+  body {
+    
+      font-family: "Josefin Slab";
+    
+    
+    
+    
+    
+    
+      color: #202020;
+    
+  }
+  .kuler-tabs,.kuler-slides,
+  #header .checkout a,
+  .cart-total + .buttons a,
+  .ui-widget{
+  
+    font-family: "Josefin Slab";
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#header{
+    
+}
+
+
+
+  #header #search input{
+    border-color: #eee;
+  }
+
+
+
+#header #cart .content, #top-bar #cart .content{
+    
+}
+
+#header #cart #cart-total:before, #top-bar #cart #cart-total:before{
+    
+    
+}
+
+
+.bottom,.social-newsletter{
+  
+    background-color: #212121;
+  
+}
+
+
+.social-newsletter .container,.bottom{
+    
+}
+
+.bottom,.social-newsletter{
+    
+    
+      color: #fff;
+    
+}
+
+
+
+
+  .bottom h3, .bottom .box-heading{
+    
+      color: #fff;
+    
+  }
+  .bottom h3:after,
+  .bottom h3:after{
+    background-color: #fff;
+  }
+
+
+
+  .bottom a{
+    
+      color: #fff;
+    
+  }
+
+
+
+
+#powered{
+  
+  
+}
+
+
+
+#powered{
+  color: ;
+}
+#powered a{
+
+}
+
+
+
+
+
+
+
+  .social a:before{
+    color: #FFFFFF;
+  }
+
+.social a:hover:before{
+    
+    
+}
+
+
+
+
+
+
+
+.toppanel{
+
+
+}
+
+
+
+
+#menu {
+	
+		font-family: "Josefin Slab";
+	
+	
+	
+	
+}
+
+
+.mainmenu > li > a, #megamenu li.item .btn-expand-menu:before {
+	
+	
+}
+
+
+  .product-grid .price-fixed, .price-new, .login_page .right .content a{
+    color: #835E5D;
+  }
+
+
+
+  .product-grid .name a{
+    color: #202020;
+  }
+
+
+
+.sale{
+    background-color: #996146;
+}
+.sale:after{
+    border-color: #996146 transparent transparent transparent;
+}
+
+
+  .sale{
+    color: #fff;
+  }
+
+
+
+.product-deal-countdown >span >span, .bottom .articles .kbm-date{
+	background-color: #EACAA6;
+}
+
+
+.product-deal-countdown >span >span{
+	color: #202020;
+}
+
+.product-grid .details a:before, .product-list .details a:before, .product-info .details a:before{
+    
+      color: #1F1F1F;
+    
+    
+      background-color: #FFFFFF;
+    
+}
+.product-grid .details a:hover:before, .product-list .details a:hover:before, .product-info .details a:hover:before{
+    
+      color: #fff;
+    
+    
+      background-color: #835E5D;
+    
+}
+.product-grid .cart, .product-list .cart, .product-info .details .cart{
+    
+      background-color: #fff;
+    
+}
+.product-grid .cart a, .product-list .cart a, .product-info .details .cart a, .product-list .details .cart a span{
+    
+      color: #1F1F1F;
+    
+}
+.product-grid .cart:hover, .product-list .cart:hover, .product-info .details .cart:hover{
+    
+      background-color: #835E5D;
+    
+}
+.product-grid .cart:hover a, .product-list .cart:hover a, .product-info .details .cart:hover a, .product-list .details .cart:hover a span {
+    
+      color: #fff;
+    
+}
+
+
+.kt-module {
+	background-image: url(http://localhost/opc1564/bromic/image/data/demo/bromic/testimonial/testimonial_skin5.jpg);
+
+}
+.kt-module .device{
+
+	color: #fff;
+
+}
+
+button, .button, a.button, #header .checkout a,.read-more{
+    
+        color: #212121;
+    
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:before,
+.jcarousel-skin-opencart .jcarousel-next:before{
+    
+      color: #fff;
+    
+    
+      background-color: #dddddd;
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:hover:before,
+.jcarousel-skin-opencart .jcarousel-next:hover:before{
+    
+      color: #ffffff;
+    
+    
+      background-color: #835E5D;
+    
+}
+.button:hover, a.button:hover, #header .checkout a:hover,.read-more:hover{
+    
+      background-color: #212121;
+    
+    
+      color: #fff;
+    
+    
+}

@@ -1,0 +1,60 @@
+---------- Date: 2014-10-13 09:13:57 ~ IP : 58.187.87.246 ----------
+REQUEST URI : /bromic/2/admin/index.php?route=module/kuler_demo_builder&amp;token=5f4162f8b87444f14b6e97421afb8b22
+MOD DETAILS:
+   modFile   : /home/kladmin/public_html/demo.kulerthemes/bromic/2/vqmod/xml/kulerthemes_cp.xml
+   id        : KulerThemes
+   version   : 
+   vqmver    : 
+   author    : kulerthemes.com
+
+File Name    : admin/view/template/module/*.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): html += '      <option value="content_top"><?php echo $text_content_top; ?></option>';
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-10-13 09:32:26 ~ IP : 58.187.87.246 ----------
+REQUEST URI : /bromic/2/admin/index.php?route=module/kuler_demo_builder&amp;token=5f4162f8b87444f14b6e97421afb8b22
+MOD DETAILS:
+   modFile   : /home/kladmin/public_html/demo.kulerthemes/bromic/2/vqmod/xml/kulerthemes_cp.xml
+   id        : KulerThemes
+   version   : 
+   vqmver    : 
+   author    : kulerthemes.com
+
+File Name    : admin/view/template/module/*.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): html += '      <option value="content_top"><?php echo $text_content_top; ?></option>';
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-10-13 09:43:47 ~ IP : 58.187.87.246 ----------
+REQUEST URI : /bromic/2/admin/index.php?route=module/kbm_mod_recent_article&amp;token=5f4162f8b87444f14b6e97421afb8b22
+MOD DETAILS:
+   modFile   : /home/kladmin/public_html/demo.kulerthemes/bromic/2/vqmod/xml/kulerthemes_cp.xml
+   id        : KulerThemes
+   version   : 
+   vqmver    : 
+   author    : kulerthemes.com
+
+File Name    : admin/view/template/module/*.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): html += '      <option value="content_top"><?php echo $text_content_top; ?></option>';
+
+----------------------------------------------------------------------
+
+
+---------- Date: 2014-10-13 09:43:57 ~ IP : 58.187.87.246 ----------
+REQUEST URI : /bromic/2/admin/index.php?route=module/kbm_mod_recent_article&amp;store_id=0&amp;token=5f4162f8b87444f14b6e97421afb8b22
+MOD DETAILS:
+   modFile   : /home/kladmin/public_html/demo.kulerthemes/bromic/2/vqmod/xml/kulerthemes_cp.xml
+   id        : KulerThemes
+   version   : 
+   vqmver    : 
+   author    : kulerthemes.com
+
+File Name    : admin/view/template/module/*.tpl(1)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): html += '      <option value="content_top"><?php echo $text_content_top; ?></option>';
+
+----------------------------------------------------------------------
+
+

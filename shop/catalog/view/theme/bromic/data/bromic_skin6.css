@@ -1,0 +1,462 @@
+/* Layout */
+
+/* Custom Notification */
+
+#notification {
+	top: 80px;
+	z-index: 9999;
+	opacity: 0;
+	right: 20px;
+	width: 300px;
+	position: fixed;
+	visibility: hidden;
+	transition: 0.3s ease-in-out;
+	-moz-transition: 0.3s ease-in-out;
+	-webkit-transition: 0.3s ease-in-out;
+}
+
+#notification.active {
+	top: 20px;
+	opacity: 1;
+	visibility: visible;
+}
+
+
+/* Scroll up */
+
+.scrollup {
+	z-index: 2;
+	position: fixed;
+	right: 50px;
+}
+
+
+/* Style Customization */
+
+.scrollup,
+.kuler-accordion .item-title.selected,
+button, .button, a.button,
+#header .checkout a,
+.read-more,
+#tabs a.selected,
+#top-bar .checkout .view:hover,
+#top-bar .checkout .check:hover,
+.pagination .links a:hover,
+.pagination .links b{
+	background-color: #F7697B;
+}
+
+
+
+  #container{
+    background-color: #fff;
+  }
+
+
+
+    a,a:visited,
+    .mainmenu > li a,
+    #top-bar a{
+        color: #212121;
+    }
+
+
+
+
+  .mainmenu > li:hover{
+    border-color: #F7697B;
+  }
+  .product-grid .name a:hover,
+  .product-filter .display a:hover,
+  .product-filter .display span:hover,
+  .product-filter .product-compare a:hover,
+  #megamenu .mainmenu > li > div .item > a:hover,
+  #megamenu .subcat li a:hover,
+  .breadcrumb li a:hover{
+    color: #F7697B;
+  }
+  .button:hover,
+  a.button:hover,
+  #header .checkout a:hover,
+  .cart-total + .buttons a:hover,
+  .cart-total + .buttons a:hover,
+  #header #cart .heading #cart-product-total,
+  .scrollup,
+  .newsletter button:hover{
+    background-color: #F7697B;
+  }
+
+  .sale{
+    background-color: #F7697B;
+  }
+  .sale:after{
+    border-color: #F7697B transparent transparent transparent;
+  }
+
+  .details .cart:hover,
+  .details .quick-view a:hover:before,
+  .details .cart a:hover:before,
+  .details .compare a:hover:before,
+  .details .wishlist a:hover:before{
+    background-color: #F7697B;
+  }
+
+
+
+  body {
+    
+      font-family: "Josefin Slab";
+    
+    
+    
+    
+    
+      background-image: url(http://localhost/opc1564/bromic/catalog/view/theme/bromic/data/patterns/carbon_fibre_retina.png);
+    
+    
+      color: #1f1f1f;
+    
+  }
+  .kuler-tabs,.kuler-slides,
+  #header .checkout a,
+  .cart-total + .buttons a,
+  .ui-widget{
+  
+    font-family: "Josefin Slab";
+  
+}
+
+
+
+h1,h2,h3,h4,h5,h6,.box-heading {
+  
+    font-family: "Josefin Slab";
+  
+  
+    font-style: normal;
+  
+  
+  
+}
+
+
+
+
+  h1,h2,h3,h4,h5,h6,.box-heading {
+    color: #212121;
+  }
+  .bottom h3:after,
+  #footer h3:after,
+  .box-heading:after,
+  .kuler-slides .box-heading:after{
+    background-color: #212121;
+  }
+
+
+
+  #top-bar{
+  
+    background-color: rgba(255, 255, 255, 1);
+  
+  }
+
+
+
+  #top-bar a,
+  #top-bar .extra .dropdown-toggle{
+    
+      color: #1f1f1f;
+    
+  }
+
+
+
+  #top-bar a:hover{
+    
+      color: #000000;
+    
+  }
+
+
+
+
+
+  #top-bar,
+  #top-bar .extra form{
+    
+      border-color: #eee;
+    
+  }
+
+
+
+#header{
+    
+}
+
+
+  #header{
+  
+    background-color: rgba(255, 255, 255, 1);
+  
+  }
+
+
+  #header #search input{
+    border-color: #eee;
+  }
+
+
+
+#header #cart .content, #top-bar #cart .content{
+    
+}
+
+#header #cart #cart-total:before, #top-bar #cart #cart-total:before{
+    
+    
+}
+
+
+.bottom,.social-newsletter{
+  
+    background-color: #212121;
+  
+}
+
+
+.social-newsletter .container,.bottom{
+    
+}
+
+.bottom,.social-newsletter{
+    
+    
+      color: #ffffff;
+    
+}
+
+
+
+
+  .bottom h3, .bottom .box-heading{
+    
+      color: #fff;
+    
+  }
+  .bottom h3:after,
+  .bottom h3:after{
+    background-color: #fff;
+  }
+
+
+
+  .bottom a{
+    
+      color: #ffffff;
+    
+  }
+
+
+
+
+#powered{
+  
+    background-color: #212121;
+  
+  
+}
+
+
+
+#powered{
+  color: #FFFFFF;
+}
+#powered a{
+
+  color: #FCE1AE;
+
+}
+
+
+
+
+
+
+
+  .social a:before{
+    color: #ffffff;
+  }
+
+.social a:hover:before{
+    
+      background-color: #8888;
+    
+    
+      color: #9C545B;
+    
+}
+
+
+
+  .contact li:before,
+  .feature2 ul li:before{
+    background-color: #bbb;
+  }
+
+
+  .contact li:before,
+  .feature2 ul li:before{
+    color: #ffffff;
+  }
+
+
+  .contact li:hover:before,
+  .feature2 ul li:hover:before{
+    background-color: #E94B35;
+  }
+
+
+
+.toppanel{
+
+
+}
+
+
+
+
+#menu {
+	
+		font-family: "Josefin Slab";
+	
+	
+	
+	
+}
+
+
+.mainmenu > li > a, #megamenu li.item .btn-expand-menu:before {
+	
+	color: #212121;
+	
+	
+}
+
+
+  .product-grid .price-fixed, .price-new, .login_page .right .content a{
+    color: #F7697B;
+  }
+
+
+  .product-grid .price-old{
+    color: #878787;
+  }
+
+
+  .product-grid .name a{
+    color: #212121;
+  }
+
+
+
+.sale{
+    background-color: #FCE2AF;
+}
+.sale:after{
+    border-color: #FCE2AF transparent transparent transparent;
+}
+
+
+  .sale{
+    color: #1F1F1F;
+  }
+
+
+
+.product-deal-countdown >span >span, .bottom .articles .kbm-date{
+	background-color: #9ED9BE;
+}
+
+
+.product-deal-countdown >span >span{
+	color: #222222;
+}
+
+.product-grid .details a:before, .product-list .details a:before, .product-info .details a:before{
+    
+      color: #1F1F1F;
+    
+    
+      background-color: #f9f9f9;
+    
+}
+.product-grid .details a:hover:before, .product-list .details a:hover:before, .product-info .details a:hover:before{
+    
+      color: #ffffff;
+    
+    
+      background-color: #F7697B;
+    
+}
+.product-grid .cart, .product-list .cart, .product-info .details .cart{
+    
+      background-color: #F9F9F9;
+    
+}
+.product-grid .cart a, .product-list .cart a, .product-info .details .cart a, .product-list .details .cart a span{
+    
+      color: #1F1F1F;
+    
+}
+.product-grid .cart:hover, .product-list .cart:hover, .product-info .details .cart:hover{
+    
+      background-color: #F7697B;
+    
+}
+.product-grid .cart:hover a, .product-list .cart:hover a, .product-info .details .cart:hover a, .product-list .details .cart:hover a span {
+    
+      color: #fff;
+    
+}
+
+
+.kt-module {
+	background-image: url(http://localhost/opc1564/bromic/image/data/demo/bromic/testimonial/testimonial_bg_4.jpg);
+
+}
+.kt-module .device{
+
+	color: #1F1F1F;
+
+}
+
+button, .button, a.button, #header .checkout a,.read-more{
+    
+        color: #fff;
+    
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:before,
+.jcarousel-skin-opencart .jcarousel-next:before{
+    
+      color: #fff;
+    
+    
+      background-color: #ddd;
+    
+}
+.jcarousel-skin-opencart .jcarousel-prev:hover:before,
+.jcarousel-skin-opencart .jcarousel-next:hover:before{
+    
+    
+      background-color: #9C545B;
+    
+}
+.button:hover, a.button:hover, #header .checkout a:hover,.read-more:hover{
+    
+      background-color: #444;
+    
+    
+    
+}
