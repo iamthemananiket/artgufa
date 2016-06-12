@@ -29,7 +29,7 @@ $kuler->addScript(array(
 <meta name="apple-mobile-web-app-title" content="Kuler Themes">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
 <title><?php echo $title; ?></title>
-<base href="<?php echo $base; ?>" />
+<base href="localhost" />
 <?php if ($description) { ?>
 <meta name="description" content="<?php echo $description; ?>" />
 <?php } ?>

@@ -13,32 +13,62 @@
 					<?php echo $language; ?>
 				</div><!--/.extra-->
 				<div class="col-md-10 col-sm-6 col-xs-12 links">
+					<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=8" style="color: white;">Contact Us</a>
+					<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=9" style="color: white;">FAQ</a>
 					<a href="<?php echo $wishlist; ?>" id="wishlist-total" style="color: white;"><?php echo $text_wishlist; ?></a>
-					<a href="<?php echo $account; ?>" style="color: white;"><?php echo $text_account; ?></a>
 					<a href="<?php echo $checkout; ?>" style="color: white;"><?php echo $text_checkout; ?></a>
+					<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=7" style="color: white;">Upload Art</a>
 					
-					<div id="welcome">
-						<?php if (!$logged) { ?>
-							<?php echo $text_welcome; ?>
-						<?php } else { ?>
-							<?php echo $text_logged; ?>
-						<?php } ?>
-					</div><!--/#welcome-->&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=7" style="color: white;">Upload Art</a>
-				<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=8" style="color: white;">Contact Us</a>
-				<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=9" style="color: white;">FAQ</a>
+					
+					
+									
+				<div id="cssmenu" style="float: right; display: inline;">
+							<a id="welcome-msg" class="has-sub"><span>Welcome, Sign in!</span></a>
+							<ul id="sign-in-box" style="display: none; position: absolute;">
+								<li><a href="index.php?route=account/login">Sign in</a></li>
+								<li><a id="create-account" href="index.php?route=account/register"><span>Create an account</span></a></li>
+							</ul>
+				</div>
+				
 				</div><!--/.links-->
 				
-				<?php if ($kuler->getSkinOption('live_search_status')) { ?>
+				
+			<?php if ($kuler->getSkinOption('live_search_status')) { ?>
 					<?php include('_live_search.tpl'); ?>
 				<?php } else { ?>
-					<div id="search">
-						<div class="button-search"></div>
-						<div class="container">
-							<input type="text" name="search" placeholder="<?php echo $text_search; ?>" value="<?php echo $search; ?>" />
+					<div id="search" class="live-search-container">
+						<div id="search-inner">
+							<div class="button-search"></div>
+							<input class="no-category kf_search ui-autocomplete-input" type="text" name="search" placeholder="Live Search Products ..."
+								autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+							<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" role="listbox" aria-activedescendant="ui-active-menuitem"></ul>
 						</div>
 					</div>
-				<?php } ?>
+				<?php } ?>	
 			</div>
+			<script>
+						$("#cssmenu").mouseover(
+							function() {
+								$("#sign-in-box").css("display", "block")
+							}
+						);
+						$("#cssmenu").mouseout(
+							function() {
+								$("#sign-in-box").css("display", "none")
+							}
+						);
+						$("#search").click(
+							function() {
+								$(".kf_search").css("width","500px")
+							}
+						);
+						$(".kf_search").blur(
+							function() {
+								$(".kf_search").css("width","260px")
+							}
+						);
+					</script>
+
 		</div>
 	</div>
   <div id="header">

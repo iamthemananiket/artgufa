@@ -2193,7 +2193,8 @@ Header
 .live-search-container #search-inner {
   display: inline-block;
   vertical-align: top;
-  position: relative;
+  position: fixed;
+  left: 45%;
 }
 .live-search-container .quick-view {
   display: none;
@@ -3697,7 +3698,7 @@ General
 #order-total-content #button-confirm {
   display: none;
 }
-#login-popup {
+#login-popup, #terms-popup {
   padding: 30px;
   max-width: 700px;
   margin: 0 auto;
@@ -6272,3 +6273,71 @@ Skin 6
 		margin-right: -22%;
 	}
 }
+#cssmenu {
+    
+    /*border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;*/
+    /*background: #141414;
+    background: -moz-linear-gradient(top, #333333 0%, #141414 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333333), color-stop(100%, #141414));
+    background: -webkit-linear-gradient(top, #333333 0%, #141414 100%);
+    background: -o-linear-gradient(top, #333333 0%, #141414 100%);
+    background: -ms-linear-gradient(top, #333333 0%, #141414 100%);
+    background: linear-gradient(to bottom, #333333 0%, #141414 100%);*/
+    font-size: 16px;
+    color: #ffffff;
+    width: auto;
+}
+
+#cssmenu .has-sub {
+    z-index: 1;
+    
+}
+
+
+
+#sign-in-box li a {
+    background: #0fa1e0;
+    border-bottom: 1px dotted #31b7f1;
+    font-size: 16px;
+    filter: none;
+    display: block;
+    line-height: 120%;
+    padding: 10px;
+    color: #ffffff;
+    right: 2px;
+}
+
+#cssmenu a {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    
+}
+
+#cssmenu #welcome-msg:hover::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    bottom: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #0fa1e0;
+    margin-left: -10px;
+}
+
+#sign-in-box li a:hover {
+  color: #ffffff;
+  background: #337ab7;
+}
+
+#create-account {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+

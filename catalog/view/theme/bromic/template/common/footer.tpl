@@ -6,9 +6,9 @@ if ($modules) {
 }
 ?>
 <div class="bottom">
-  <div class="container">
+  <div style="padding-left: 3%; padding-right: 3%">
     <div class="row">
-      <div class="col-md-4 col-sm-4 col-xs-12 about wow bounceInRight" data-wow-offset="100">
+      <div class="col-md-5 col-sm-5 col-xs-12 about wow bounceInRight" data-wow-offset="100">
         <?php if ($kuler->getSkinOption('show_information')) { ?>
           <?php if ($kuler->getSkinOption('show_information_title')) { ?>
             <h3><span><?php echo $kuler->translate($kuler->getSkinOption('information_title')); ?></span></h3>
@@ -27,7 +27,7 @@ if ($modules) {
 		  </div>
 	    <?php } ?>
       </div><!--/.about-->
-      <div class="col-md-4 col-sm-4 col-xs-12 contact wow bounceInRight" data-wow-offset="200">
+      <div class="col-md-5 col-sm-5 col-xs-12 contact wow bounceInRight" data-wow-offset="200">
 	      <?php
 	      $modules = Kuler::getInstance()->getModules('footer_extra_info');
 	      if ($modules) {
@@ -125,7 +125,7 @@ if ($modules) {
 	      <?php } ?>
       </div>
 	    <?php if ($kuler->getSkinOption('show_newsletter')) { ?>
-		    <div class="col-md-4 col-sm-4 col-xs-12 newsletter wow bounceInRight" data-wow-offset="300">
+		    <div class="col-md-2 col-sm-2 col-xs-12 newsletter wow bounceInRight" data-wow-offset="300">
 			    <?php if ($kuler->getSkinOption('show_newsletter_title')) { ?>
 				    <h3><span><?php echo $kuler->translate($kuler->getSkinOption('newsletter_title')); ?></span></h3>
 			    <?php } ?>
@@ -146,7 +146,19 @@ if ($modules) {
 <div id="powered">
 	<div class="container">
     <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-5 col-xs-12 copyright">
+    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 copyright">
+        <a href="#test-popup" class="open-popup-link">Terms and Conditions</a>
+    </div>
+    <script>
+    $('.open-popup-link').magnificPopup({
+  type:'inline',
+  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+});
+function closePopup() {
+  $.magnificPopup.close();
+}
+</script>
+      <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 copyright">
         <?php if ($kuler->getSkinOption('show_custom_copyright')) { ?>
           <?php echo $kuler->translate($kuler->getSkinOption('custom_copyright')); ?>
         <?php } else { ?>
@@ -196,6 +208,28 @@ if ($modules) {
 	</div>
 </div>
 <?php } ?>
+<div id="test-popup" class="white-popup mfp-hide">
+  
+	<div id="terms-popup">
+		<div class="col-sm-12 left">
+			<h2>Terms and Conditions</h2>
+    <div class="content">
+      <p>
+        <ul>
+          <div>1. We will add 20% on the artist's quoted price which will include our commission , service tax , referral discounts , buyer tie-up commissions , etc. </div>
+          <div>2. Delivery charges and interstate taxes will be over and above this.</div>
+          <div>3. We only sell original art works and no prints.</div>
+          <div>4. We have a 3 day return policy for the buyer and hence , payment will be credited to the seller's account within 10 working days from the date of pickup.</div>
+          <div>5. We do not encourage the return of framed paintings due to transportation issues.</div>
+          <div>6. In case of return of unframed paintings , only the delivery charge will be deducted from the buyer.</div>
+        <ol>
+      </p>
+  	</div>
+				<a id="tc-close" onClick="closePopup()" class="button">Close</a>
+		</div>
+		
+	</div>
+</div>
 <?php if ($kuler->getSkinOption('enable_scroll_up')) { ?>
 <a class="scrollup"><?php echo $kuler->translate($kuler->getSkinOption('scroll_up_text')); ?></a>
 <?php } ?>
