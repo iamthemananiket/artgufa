@@ -72,11 +72,11 @@
 		</div>
 	</div>
   <div id="header">
-    <div class="container">
+    <div class="container-fluid" style="margin-right: 10px;">
       <div class="row">
 	      <div class="toppanel row">
 		      <?php if ($logo) { ?>
-			      <div id="logo" class="col-md-2 wow fadeInLeft" data-wow-delay="0.1s">
+			      <div id="logo" class="col-md-2 wow fadeIn" data-wow-delay="0.1s">
 				      <a href="<?php echo $home; ?>">
 					      <img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" />
 				      </a>

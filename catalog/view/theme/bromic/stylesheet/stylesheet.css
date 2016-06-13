@@ -2051,6 +2051,7 @@ Header
 #cart .empty {
   padding: 50px 0;
   text-align: center;
+  background: transparent;  
 }
 #cart .empty:before {
   content: '\e62b';
@@ -6104,6 +6105,7 @@ Skin2
 }
 .skin2 .promotion .kls-fullwidth {
   margin-top: -150px;
+  height: 600px;
 }
 .skin2 #top-bar .container {
   position: relative;
@@ -6148,7 +6150,8 @@ Skin2
   padding-top: 70px;
 }
 .skin2 .carousel .box-heading {
-  display: none;
+  text-align: left;
+  display: inline;
 }
 .skin2 .carousel .jcarousel-skin-opencart .jcarousel-container .jcarousel-next,
 .skin2 .carousel .jcarousel-skin-opencart .jcarousel-container .jcarousel-prev {
