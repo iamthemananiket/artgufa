@@ -57,7 +57,7 @@
 								$("#sign-in-box").css("display", "none")
 							}
 						);
-						$("#search").click(
+						$(".kf_search").click(
 							function() {
 								$(".kf_search").css("width","500px")
 							}
