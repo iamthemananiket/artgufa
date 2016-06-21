@@ -5,6 +5,8 @@ define('HTTP_SERVER', './');
 // HTTPS
 //define('HTTPS_SERVER', 'http://artgufa.com/store/');
 define('HTTPS_SERVER', './');
+define('HTTP_SERVER', 'http://artgufa.com/store/');
+// HTTPS
 
 // DIR
 define('DIR_APPLICATION', './catalog/');
@@ -19,7 +21,9 @@ define('DIR_DOWNLOAD', './download/');
 define('DIR_LOGS', './system/logs/');
 // DB
 define('DB_DRIVER', 'mysqli');
+
 define('DB_HOSTNAME', 'localhost');
+
 //define('DB_HOSTNAME', 'ap-cdbr-azure-east-c.cloudapp.net'); For azure
 
 define('DB_USERNAME', 'root');
