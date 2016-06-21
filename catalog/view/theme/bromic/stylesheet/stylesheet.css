@@ -215,8 +215,8 @@ input:focus {
   outline: none;
 }
 ul {
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding: 5px;
 }
 li {
   list-style: none;
@@ -2088,7 +2088,8 @@ Header
 }
 #header .mini-cart-info li,
 #top-bar .mini-cart-info li {
-  padding-bottom: 30px;
+  margin-bottom: 10px;
+  border-bottom: 1px groove #44bbf8;
 }
 #header .mini-cart-info .image,
 #top-bar .mini-cart-info .image {
@@ -4412,7 +4413,7 @@ h6 {
 }
 #top-bar .mini-cart-info,
 #header .mini-cart-info {
-  padding-left: 50px;
+  padding: 0px;
 }
 #top-bar .mini-cart-info .image,
 #header .mini-cart-info .image,
@@ -4859,7 +4860,7 @@ Products grid
   }
   #header #cart .content,
   #top-bar #cart .content {
-    padding: 60px 0 30px;
+    padding: 100px 0 30px;
     margin: 30px 0;
   }
   .skin1 #btn-mobile-toggle {
