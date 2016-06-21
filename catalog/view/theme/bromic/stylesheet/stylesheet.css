@@ -2089,7 +2089,7 @@ Header
 #header .mini-cart-info li,
 #top-bar .mini-cart-info li {
   margin-bottom: 10px;
-  border-bottom: 1px groove #44bbf8;
+  border-bottom: 1px solid #EEEEEE;
 }
 #header .mini-cart-info .image,
 #top-bar .mini-cart-info .image {
@@ -6345,3 +6345,6 @@ Skin 6
   border-bottom-right-radius: 7px;
 }
 
+.white, .white a {
+  color: #fff;
+}
