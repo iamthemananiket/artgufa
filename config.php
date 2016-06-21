@@ -5,9 +5,7 @@ define('HTTP_SERVER', './');
 // HTTPS
 //define('HTTPS_SERVER', 'http://artgufa.com/store/');
 define('HTTPS_SERVER', './');
-define('HTTP_SERVER', 'http://artgufa.com/store/');
-// HTTPS
-define('HTTPS_SERVER', 'http://artgufa.com/store/');
+
 // DIR
 define('DIR_APPLICATION', './catalog/');
 define('DIR_SYSTEM', './system/');
