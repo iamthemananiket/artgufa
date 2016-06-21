@@ -18,8 +18,7 @@
                     </div>
                     <div class="col-sm-6 name">
                       <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
-                      <div class="quantity">x&nbsp;<?php echo $product['quantity']; ?></div>
-                      <div class="total"><?php echo $product['total']; ?></div>
+                      
                     </div>
                     <div class="col-sm-2 remove"><img src="catalog/view/theme/default/image/remove-small.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" onclick="(getURLVar('route') == 'checkout/cart' || getURLVar('route') == 'checkout/checkout') ? location = 'index.php?route=checkout/cart&remove=<?php echo $product['key']; ?>' : $('#cart').load('index.php?route=module/cart&remove=<?php echo $product['key']; ?>' + ' #cart > *');" /></div>
                   </div>

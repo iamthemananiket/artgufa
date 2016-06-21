@@ -1,10 +1,10 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://artgufa.com/store/');
-
+//define('HTTP_SERVER', 'http://artgufa.com/store/');
+define('HTTP_SERVER', './');
 // HTTPS
-define('HTTPS_SERVER', 'http://artgufa.com/store/');
-
+//define('HTTPS_SERVER', 'http://artgufa.com/store/');
+define('HTTPS_SERVER', './');
 // DIR
 define('DIR_APPLICATION', './catalog/');
 define('DIR_SYSTEM', './system/');
