@@ -13,11 +13,11 @@
 					<?php echo $language; ?>
 				</div><!--/.extra-->
 				<div class="col-md-10 col-sm-6 col-xs-12 links">
-					<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=8" style="color: white;">Contact Us</a>
+					<a href="./index.php?route=information/contact" style="color: white;">Contact Us</a>
 					<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=9" style="color: white;">FAQ</a>
 					<a href="<?php echo $wishlist; ?>" id="wishlist-total" style="color: white;"><?php echo $text_wishlist; ?></a>
 					<a href="<?php echo $checkout; ?>" style="color: white;"><?php echo $text_checkout; ?></a>
-					<a href="http://kartpro.unystore.com/index.php?route=information/information&information_id=7" style="color: white;">Upload Art</a>
+					<a href="index.php?route=information/upload" style="color: white;">Upload Art</a>
 					
 					
 					
