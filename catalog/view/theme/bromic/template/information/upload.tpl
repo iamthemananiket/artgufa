@@ -18,7 +18,7 @@
 <div class="container register_page">
   <div class="row">
     <div id="content" class="col-xs-12">
-    <form action="./upload/submit.php" method="get" enctype="multipart/form-data">
+    <form id="upload-form" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-6 col-sm-12 content">
           <h2>Enter your personal details</h2>
@@ -92,34 +92,41 @@
           </div>
         </div>
       </div>
-      <input  style="float: right;" type="text" value="Add another art peice" class="button" />
-       
+      <!-- <input  style="float: right;" type="button" value="Add another art peice" class="button" /> -->
+      <input id="submit" style="float: right;" type="button" value="Submit" class="button" /> 
       </div>
       
-        
-      <input  id="submit" style="float: left;" type="submit"  value="Submit"  class="button"/>
-      <br/>
         
     </form>
     <?php echo $content_bottom; ?></div>
   </div>
 </div>
-<!-- <script>
-    $('#submit').click(function()
+<div id="dialog" style="display: none" align = "center">
+    <p>Your request has been succefully submitted. Our team will contact you on approval.</p>
+    <div><a href="./index.php?route=common/home">Home</a></div>
+    <hr>
+    <div><a href="./index.php?route=information/upload">Add another product</a></div> 
+</div>
+<script>
+    $("#dialog").dialog({
+            modal: true,
+            autoOpen: false,
+            title: "Successfully submitted!",
+            width: 400,
+            height: 400
+        });
+    $('#submit').click(function(e)
     {
+    e.preventDefault();
     $.ajax({
-        url: send_email.php,
+        url: './upload/submit.php',
         type:'POST',
-        data:
-        {
-            email: email_address,
-            message: message
-        },
+        data: $("#upload-form").serialize(),
         success: function(msg)
         {
-            alert('Email Sent');
+            $('#dialog').dialog('open');
         }               
     });
     });
-</script> -->
+</script>
 <?php echo $footer; ?>

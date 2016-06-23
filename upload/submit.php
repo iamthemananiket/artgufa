@@ -1,36 +1,36 @@
 <?php
-    mkdir("uploads/".$_GET['artistname'].",".$_GET['artname']);
-    $txtfile = fopen("uploads/".$_GET['artistname'].",".$_GET['artname']."/details.txt", "w") or die("Unable to open file!");
-    fwrite($txtfile,"Artist Name - ".$_GET['artistname']."\r\n");
-    fwrite($txtfile,"Phone number - ".$_GET['phone']."\r\n");
-    fwrite($txtfile,"Pick Up address - ".$_GET['address']."\r\n");
-    fwrite($txtfile,"Pin Code - ".$_GET['pincode']."\r\n\r\n");
+    mkdir("uploads/".$_POST['artistname'].",".$_POST['artname']);
+    $txtfile = fopen("uploads/".$_POST['artistname'].",".$_POST['artname']."/details.txt", "w") or die("Unable to open file!");
+    fwrite($txtfile,"Artist Name - ".$_POST['artistname']."\r\n");
+    fwrite($txtfile,"Phone number - ".$_POST['phone']."\r\n");
+    fwrite($txtfile,"Pick Up address - ".$_POST['address']."\r\n");
+    fwrite($txtfile,"Pin Code - ".$_POST['pincode']."\r\n\r\n");
 
-    fwrite($txtfile,"Name of Art - ".$_GET['artname']."\r\n");
-    fwrite($txtfile,"Description - ".$_GET['description']."\r\n");
-    fwrite($txtfile,"Price - ".$_GET['price']."\r\n");
-    fwrite($txtfile,"Painting Medium - ".$_GET['medium']."\r\n");
-    fwrite($txtfile,"State of the painting - ".$_GET['painting_state']."\r\n");
+    fwrite($txtfile,"Name of Art - ".$_POST['artname']."\r\n");
+    fwrite($txtfile,"Description - ".$_POST['description']."\r\n");
+    fwrite($txtfile,"Price - ".$_POST['price']."\r\n");
+    fwrite($txtfile,"Painting Medium - ".$_POST['medium']."\r\n");
+    fwrite($txtfile,"State of the painting - ".$_POST['painting_state']."\r\n");
 
     fclose($txtfile);
 
-    //$zipFile = "zips/".$_GET['artistname'].",".$_GET['artname'].".zip";
+    //$zipFile = "zips/".$_POST['artistname'].",".$_POST['artname'].".zip";
     //$zipArchive = new ZipArchive();
 
     //if (!$zipArchive->open($zipFile, ZIPARCHIVE::OVERWRITE))
       //  die("Failed to create archive\n");
 
-    //$zipArchive->addGlob("uploads/".$_GET['artistname'].",".$_GET['artname']);
+    //$zipArchive->addGlob("uploads/".$_POST['artistname'].",".$_POST['artname']);
     //if (!$zipArchive->status == ZIPARCHIVE::ER_OK)
      //   echo "Failed to write local files to zip\n";
 
     //$zipArchive->close();
 
-    $rootPath = realpath("uploads/".$_GET['artistname'].",".$_GET['artname']);
+    $rootPath = realpath("uploads/".$_POST['artistname'].",".$_POST['artname']);
 
     // Initialize archive object
     $zip = new ZipArchive();
-    $zip->open("zips/".$_GET['artistname'].",".$_GET['artname'].".zip", ZipArchive::CREATE | ZipArchive::OVERWRITE);
+    $zip->open("zips/".$_POST['artistname'].",".$_POST['artname'].".zip", ZipArchive::CREATE | ZipArchive::OVERWRITE);
 
     // Create recursive directory iterator
     /** @var SplFileInfo[] $files */
@@ -44,7 +44,7 @@
     // Skip directories (they would be added automatically)
     if (!$file->isDir())
     {
-        // Get real and relative path for current file
+        // POST real and relative path for current file
         $filePath = $file->getRealPath();
         $relativePath = substr($filePath, strlen($rootPath) + 1);
 
@@ -61,14 +61,14 @@
     //Sending the mail
     $email = new PHPMailer();
     $email->From      = 'iamthemananiket@gmail.com';
-    $email->FromName  = $_GET['artistname'];
+    $email->FromName  = $_POST['artistname'];
     $email->Subject   = 'Upload Request';
     //$email->Body      = $bodytext;
     $email->AddAddress( 'iamthemananiket@gmail.com' );
 
-    $file_to_attach = "zips/".$_GET['artistname'].",".$_GET['artname'].".zip";
+    $file_to_attach = "zips/".$_POST['artistname'].",".$_POST['artname'].".zip";
 
-    $email->AddAttachment( $file_to_attach , $_GET['artistname'].",".$_GET['artname'].".zip" );
+    $email->AddAttachment( $file_to_attach , $_POST['artistname'].",".$_POST['artname'].".zip" );
 
     return $email->Send();
 ?>
