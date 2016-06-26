@@ -26,6 +26,31 @@
 
     //$zipArchive->close();
 
+    //////////////////////////////
+    //Photo uploads
+    // Count # of uploaded files in array
+    $total = count($_FILES['photos']['name']);
+
+    // Loop through each file
+    for($i=0; $i<$total; $i++) {
+        //Get the temp file path
+        $tmpFilePath = $_FILES['photos']['tmp_name'][$i];
+
+        //Make sure we have a filepath
+        if ($tmpFilePath != ""){
+            //Setup our new file path
+            $newFilePath = "uploads/".$_POST['artistname'].",".$_POST['artname']."/". $_FILES['photos']['name'][$i];
+
+            //Upload the file into the temp dir
+            if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+
+                //Handle other code here
+
+            }
+        }
+    }
+
+
     $rootPath = realpath("uploads/".$_POST['artistname'].",".$_POST['artname']);
 
     // Initialize archive object
