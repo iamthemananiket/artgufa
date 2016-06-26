@@ -18,7 +18,7 @@
 <div class="container register_page">
   <div class="row">
     <div id="content" class="col-xs-12">
-    <form id="upload-form" method="post" enctype="multipart/form-data">
+    <form id="data" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="col-md-6 col-sm-12 content">
           <h2>Enter your personal details</h2>
@@ -87,13 +87,17 @@
               <td>State of Painting<span class="required">*</span></td>
               <td><input type="text" name="painting_state" placeholder="Rolled, Framed, etc , If framed, can it be unframed and rolled?" /></td>
             </tr>
+            <tr>
+              <td>Upload photos<span class="required">*</span></td>
+              <td><input type="file" name="photos[]" multiple/></td>
+            </tr>
                 
           </table>
           </div>
         </div>
       </div>
       <!-- <input  style="float: right;" type="button" value="Add another art peice" class="button" /> -->
-      <input id="submit" style="float: right;" type="button" value="Submit" class="button" /> 
+      <input id="submit" style="float: right;" type="submit" value="Submit" class="button" /> 
       </div>
       
         
@@ -115,13 +119,15 @@
             width: 400,
             height: 400
         });
-    $('#submit').click(function(e)
-    {
+    $('form#data').submit(function(e) {
     e.preventDefault();
+    var formData = new FormData($(this)[0]);
     $.ajax({
         url: './upload/submit.php',
         type:'POST',
-        data: $("#upload-form").serialize(),
+        data: formData,
+        processData: false,
+        contentType: false,
         success: function(msg)
         {
             $('#dialog').dialog('open');
