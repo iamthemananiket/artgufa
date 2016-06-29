@@ -6303,7 +6303,7 @@ Skin 6
 
 #sign-in-box li a {
     background: #0fa1e0;
-    border-bottom: 1px dotted #31b7f1;
+    border-bottom: 1px solid #31b7f1;
     font-size: 16px;
     filter: none;
     display: block;
@@ -6320,19 +6320,19 @@ Skin 6
     
 }
 
-#cssmenu #welcome-msg:hover::after {
-    content: '';
-    display: block;
+#inner-arrow {    
+    display: inline-block;
+    border-style: solid;
+    _border-style: dashed;
+    border-width: 4px;
+    border-color: transparent;
+    border-top: 4px solid white;
+    border-bottom-width: 0;
     width: 0;
     height: 0;
-    position: absolute;
-    left: 50%;
-    top: 100%;
-    bottom: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid #0fa1e0;
-    margin-left: -10px;
+    font-size: 0;
+    line-height: 0;
+    margin-left: 40%
 }
 
 #sign-in-box li a:hover {
