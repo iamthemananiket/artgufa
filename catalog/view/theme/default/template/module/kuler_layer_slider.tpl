@@ -69,7 +69,7 @@ $class = $sliderParams['fullwidth'] ? $sliderParams['fullwidth'] : 'boxed';
 								<?php if( $layer['layer_video_type'] == 'vimeo')  { ?>
 								<iframe src="//player.vimeo.com/video/<?php echo $layer['layer_video_id'];?>?title=0&amp;byline=0&amp;portrait=0;api=1" width="<?php echo $layer['layer_video_width'];?>" height="<?php echo $layer['layer_video_height'];?>"></iframe>
 								<?php } else { ?>
-								<iframe width="<?php echo $layer['layer_video_width'];?>" height="<?php echo $layer['layer_video_height'];?>" src="//www.youtube.com/embed/<?php echo $layer['layer_video_id'];?>" frameborder="0" allowfullscreen></iframe>
+								<iframe width="<?php echo $layer['layer_video_width'];?>" height="<?php echo $layer['layer_video_height'];?>" src="//www.youtube.com/embed/<?php echo $layer['layer_video_id'] . '&version=3&enablejsapi=1' ;?>" frameborder="0" allowfullscreen></iframe>
 								<?php } ?>
 							<?php } else { ?>
 								<?php echo html_entity_decode(str_replace('_ASM_', '&', $layer['layer_caption']) , ENT_QUOTES, 'UTF-8'); ?>

@@ -3752,8 +3752,8 @@
 				// CHANG THE YOUTUBE PLAYER STATE HERE //
 				////////////////////////////////////////
 				 function onPlayerStateChange(event) {
-
-					 var embedCode = event.target.getVideoEmbedCode();
+					 //console.log(event.target.a.outerHTML);
+					 var embedCode = event.target.a.outerHTML;
 					 var ytcont = jQuery('#'+embedCode.split('id="')[1].split('"')[0])
 					 var container = ytcont.closest('.tp-simpleresponsive');
 					 var player = ytcont.parent().data('player');
@@ -4067,11 +4067,11 @@
 								var handlecaption=0;
 
 								// HIDE CAPTION IF RESOLUTION IS TOO LOW
-								if (opt.width<opt.hideCaptionAtLimit && nextcaption.data('captionhidden')=="on") {
+								if (opt.width < opt.hideCaptionAtLimit && nextcaption.data('captionhidden')=="on") {
 									nextcaption.addClass("tp-hidden-caption")
 									handlecaption=1;
 								} else {
-									if (opt.width<opt.hideAllCaptionAtLimit || opt.width<opt.hideAllCaptionAtLilmit)	{
+									if (opt.width < opt.hideAllCaptionAtLimit || opt.width<opt.hideAllCaptionAtLilmit)	{
 										nextcaption.addClass("tp-hidden-caption")
 										handlecaption=1;
 									} else {
