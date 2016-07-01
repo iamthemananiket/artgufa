@@ -44,7 +44,7 @@ class ControllerModuleKulerLayerSlider extends Controller {
 		}
 		
 		$this->document->addScript('catalog/view/javascript/layerslider/jquery.themepunch.plugins.min.js');	 
-		$this->document->addScript('catalog/view/javascript/layerslider/jquery.themepunch.revolution.min.js');	 
+		$this->document->addScript('catalog/view/javascript/layerslider/jquery.themepunch.revolution.js');	 
 
 
  	 	$url =   $this->config->get('config_secure') ? $this->config->get('config_ssl') : $this->config->get('config_url'); 
