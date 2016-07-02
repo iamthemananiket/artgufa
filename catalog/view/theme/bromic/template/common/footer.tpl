@@ -146,7 +146,7 @@ if ($modules) {
 <div id="powered">
 	<div class="container">
     <div class="row">
-    <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 copyright">
+    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 copyright">
         <a href="#test-popup" class="open-popup-link">Terms and Conditions</a>
     </div>
     <script>
@@ -158,13 +158,14 @@ function closePopup() {
   $.magnificPopup.close();
 }
 </script>
-      <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12 copyright">
+      <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 copyright">
         <?php if ($kuler->getSkinOption('show_custom_copyright')) { ?>
           <?php echo $kuler->translate($kuler->getSkinOption('custom_copyright')); ?>
         <?php } else { ?>
           <?php echo $powered; ?>
         <?php } ?>
       </div>
+      <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 copyright"></div>
 
     </div>
 	</div>
