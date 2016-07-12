@@ -1,32 +1,33 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://artgufa.com/store/admin/');
-define('HTTP_CATALOG', 'http://artgufa.com/store/');
+define('HTTP_SERVER', './admin');
+define('HTTP_CATALOG', './admin');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://artgufa.com/store/admin/');
-define('HTTPS_CATALOG', 'http://artgufa.com/store/');
+define('HTTPS_SERVER', './admin');
+define('HTTPS_CATALOG', './admin');
 
 // DIR
-define('DIR_APPLICATION', '/home/rocket/public_html/clients/siddharth_jain/store/admin/');
-define('DIR_SYSTEM', '/home/rocket/public_html/clients/siddharth_jain/store/system/');
-define('DIR_DATABASE', '/home/rocket/public_html/clients/siddharth_jain/store/system/database/');
-define('DIR_LANGUAGE', '/home/rocket/public_html/clients/siddharth_jain/store/admin/language/');
-define('DIR_TEMPLATE', '/home/rocket/public_html/clients/siddharth_jain/store/admin/view/template/');
-define('DIR_CONFIG', '/home/rocket/public_html/clients/siddharth_jain/store/system/config/');
-define('DIR_IMAGE', '/home/rocket/public_html/clients/siddharth_jain/store/image/');
-define('DIR_CACHE', '/home/rocket/public_html/clients/siddharth_jain/store/system/cache/');
-define('DIR_DOWNLOAD', '/home/rocket/public_html/clients/siddharth_jain/store/download/');
-define('DIR_LOGS', '/home/rocket/public_html/clients/siddharth_jain/store/system/logs/');
-define('DIR_CATALOG', '/home/rocket/public_html/clients/siddharth_jain/store/catalog/');
+define('DIR_APPLICATION', '../admin/');
+define('DIR_SYSTEM', '../system/');
+define('DIR_DATABASE', '../system/database/');
+define('DIR_LANGUAGE', '../admin/language/');
+define('DIR_TEMPLATE', '../admin/view/template/');
+define('DIR_CONFIG', '../system/config/');
+define('DIR_IMAGE', '../image/');
+define('DIR_CACHE', '../system/cache/');
+define('DIR_DOWNLOAD', '../download/');
+define('DIR_LOGS', '../system/logs/');
+define('DIR_CATALOG', '../catalog/');
 
-// DB
+//DB
 define('DB_DRIVER', 'mysqli');
-define('DB_HOSTNAME', 'localhost');
-//define('DB_USERNAME', 'rocket_kartpro');
-define('DB_USERNAME', 'root');
-//define('DB_PASSWORD', '006006');
-define('DB_PASSWORD', '');
+//define('DB_HOSTNAME', 'localhost');
+define('DB_HOSTNAME', 'ap-cdbr-azure-east-c.cloudapp.net');
+//define('DB_USERNAME', 'root');
+define('DB_USERNAME', 'b0b15779afae41');
+//define('DB_PASSWORD', '');
+define('DB_PASSWORD', '5c229032');
 define('DB_DATABASE', 'rocket_kartpro');
 define('DB_PREFIX', 'oc_');
 ?>
