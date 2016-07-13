@@ -1,11 +1,11 @@
 <?php
 // HTTP
-define('HTTP_SERVER', './admin');
-define('HTTP_CATALOG', './admin');
+define('HTTP_SERVER', './');
+define('HTTP_CATALOG', '../');
 
 // HTTPS
-define('HTTPS_SERVER', './admin');
-define('HTTPS_CATALOG', './admin');
+define('HTTPS_SERVER', './');
+define('HTTPS_CATALOG', '../');
 
 // DIR
 define('DIR_APPLICATION', '../admin/');
