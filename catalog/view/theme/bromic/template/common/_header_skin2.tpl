@@ -23,14 +23,26 @@
 					
 									
 				<div id="cssmenu" style="float: right; display: inline;">
-							<a id="welcome-msg" class="has-sub"><span>Welcome, Sign in!</span><div style="position: absolute; width: 140px; height: 5px;"><div id="inner-arrow"></div></div></a>
-							<ul id="sign-in-box" style="display: none; position: absolute;">
-								<li><a href="index.php?route=account/login">Sign in</a></li>
-								<li><a id="create-account" href="index.php?route=account/register"><span>Create an account</span></a></li>
-							</ul>
-				</div>
+							<a id="welcome-msg" class="has-sub">
+								<span>Welcome, 
+									<?php if(!$logged) { ?>
+										<?php echo "Sign in!"
+									."</span>"
+								."<div style='position: absolute; width: 140px; height: 5px;'><div id='inner-arrow'>"
+								."</div>"
+								."</div>"
+							."</a>"
+							."<ul id='sign-in-box' style='display: none; position: absolute;'>"; ?>
+								<?php echo $text_welcome; ?>
+							<?php echo "</ul>"
+				."</div>"
 				
-				</div><!--/.links-->
+				."</div><!--/.links-->"; ?>
+				<?php } else { ?>
+					<?php echo $text_logged
+					."</span></a></div></div>";
+			 		?>
+				<?php } ?>	 
 				
 				
 			<?php if ($kuler->getSkinOption('live_search_status')) { ?>
