@@ -6,6 +6,7 @@ if ($modules) {
 }
 ?>
 <div class="bottom">
+
   <div style="padding-left: 3%; padding-right: 3%">
     <div class="row">
       <div class="col-md-5 col-sm-5 col-xs-12 about wow bounceInRight" data-wow-offset="100">
@@ -230,6 +231,7 @@ if ($modules) {
 		</div>
 		
 	</div>
+  
 </div>
 <?php if ($kuler->getSkinOption('enable_scroll_up')) { ?>
 <a class="scrollup"><?php echo $kuler->translate($kuler->getSkinOption('scroll_up_text')); ?></a>
@@ -247,7 +249,9 @@ if ($modules) {
 <!-- BS:SNIPPET-->
 <script type='text/javascript'>//<![CDATA[
 document.write("<script async src='//HOST:3000/browser-sync-client.1.3.7.js'><\/script>".replace(/HOST/g, location.hostname));
-//]]></script>
+//]]>
+
+
 <!-- BS:SNIPPET:END-->
 </body>
 </html>
