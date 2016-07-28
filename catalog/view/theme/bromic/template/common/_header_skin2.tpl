@@ -9,7 +9,10 @@
 	<center>
 	
 		<h3 style="display: inline;">For best shopping experience, download our Android app - </h3>
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of f5f7f2c... Merge conflict solved
 		<a target="_blank" href="http://play.google.com"><img src="http://www.freeiconspng.com/uploads/google-play-store-icon-26.png"  style="width:5%; height:5%;" /></a>
 	</center>
 	</div>
