@@ -2,17 +2,16 @@
 // HTTP
 define('HTTP_SERVER', './');
 define('HTTP_CATALOG', '../');
-<<<<<<< HEAD
+
 
 // HTTPS
 define('HTTPS_SERVER', './');
 define('HTTPS_CATALOG', '../');
 
-=======
 // HTTPS
 define('HTTPS_SERVER', './');
 define('HTTPS_CATALOG', '../');
->>>>>>> refs/remotes/origin/master
+
 // DIR
 define('DIR_APPLICATION', '../admin/');
 define('DIR_SYSTEM', '../system/');
