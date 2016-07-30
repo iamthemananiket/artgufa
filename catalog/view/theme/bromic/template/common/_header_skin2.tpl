@@ -90,6 +90,17 @@
 								$(".kf_search").css("width","260px")
 							}
 						);
+						$(window).scroll(function() {
+
+    				if ($(this).scrollTop()>0)
+     				{
+        			$('#banner').fadeOut();
+     				}
+    				else
+     				{
+      				$('#banner').fadeIn();
+     				}
+ 						});
 
 						window.mobilecheck = function() {
   						var check = false;
