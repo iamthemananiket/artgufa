@@ -84,16 +84,31 @@
     require_once("PHPMailer/class.phpmailer.php");
 
     //Sending the mail
-    $email = new PHPMailer();
-    $email->From      = 'iamthemananiket@gmail.com';
-    $email->FromName  = $_POST['artistname'];
-    $email->Subject   = 'Upload Request';
-    //$email->Body      = $bodytext;
-    $email->AddAddress( 'iamthemananiket@gmail.com' );
+    // $email = new PHPMailer();
+    // $email->From      = 'iamthemananiket@gmail.com';
+    // $email->FromName  = $_POST['artistname'];
+    // $email->Subject   = 'Upload Request';
+    // //$email->Body      = $bodytext;
+    // $email->AddAddress( 'iamthemananiket@gmail.com' );
 
-    $file_to_attach = "zips/".$_POST['artistname'].",".$_POST['artname'].".zip";
+    // $file_to_attach = "zips/".$_POST['artistname'].",".$_POST['artname'].".zip";
 
-    $email->AddAttachment( $file_to_attach , $_POST['artistname'].",".$_POST['artname'].".zip" );
+    // $email->AddAttachment( $file_to_attach , $_POST['artistname'].",".$_POST['artname'].".zip" );
 
-    return $email->Send();
+    // return $email->Send();
+    $sURL = "https://prod-00.southeastasia.logic.azure.com:443/workflows/41734d60479541938dc4c04ca1675e1f/triggers/manual/run?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=LTDFN7kV6VWZWKnJKwqJhOcI1lOReANRO-qQhEDgJPI"; // The POST URL
+    $sPD = array('artist' => $_POST['artistname'], 'phone' => $_POST['phone'], 'address' => $_POST['address'], 'artname' => $_POST['artname'],
+            'description' => $_POST['description'], 'price' => $_POST['price'], 'medium' => $_POST['medium'], 'state' => $_POST['painting_state']); // The POST Data
+    $aHTTP = array(
+  'http' => // The wrapper to be used
+    array(
+    'method'  => 'POST', // Request Method
+    // Request Headers Below
+    'header'  => 'Content-type: application/x-www-form-urlencoded',
+    'content' => $sPD
+  )
+);
+$context = stream_context_create($aHTTP);
+$contents = file_get_contents($sURL, false, $context);
+    
 ?>
