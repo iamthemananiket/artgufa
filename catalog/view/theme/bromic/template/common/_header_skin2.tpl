@@ -92,11 +92,11 @@
 						);
 						$(window).scroll(function() {
 
-    				if ($(this).scrollTop()>0)
+    				if ($(this).scrollTop()>0 && window.mobilecheck())
      				{
         			$('#banner').fadeOut();
      				}
-    				else
+    				else if(window.mobilecheck())
      				{
       				$('#banner').fadeIn();
      				}
