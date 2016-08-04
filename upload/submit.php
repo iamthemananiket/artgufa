@@ -82,9 +82,22 @@
     $zip->close();
     
     $sURL = "https://prod-00.southeastasia.logic.azure.com:443/workflows/41734d60479541938dc4c04ca1675e1f/triggers/manual/run?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=LTDFN7kV6VWZWKnJKwqJhOcI1lOReANRO-qQhEDgJPI"; // The POST URL
-    $sPD = $_POST['artistname']; // The POST Data
+    $sPD = array('artisit' => $_POST['artistname'],
+    'artname' => $_POST['artname'],
+    'phone' => $_POST['phone'],
+    'address' => $_POST['address'],
+    'description' => $_POST['description'],
+
+    'artname' => $_POST['artname'],
+    'price' => $_POST['price'],
+    'medium' => $_POST['medium'],
+    'state'=> $_POST['painting_state'],
+    'url' => 'http://agbeta.azurewebsites.net\upload\uploads/'.$_POST['artistname'].",".$_POST['artname']."/". $_FILES['photos']['name'][$i]
+    );
+    
     $aHTTP = array(
   'http' => // The wrapper to be used
+
     array(
     'method'  => 'POST', // Request Method
     // Request Headers Below
