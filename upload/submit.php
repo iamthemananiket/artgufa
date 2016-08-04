@@ -72,7 +72,7 @@
     'price' => $_POST['price'],
     'medium' => $_POST['medium'],
     'state'=> $_POST['painting_state'],
-    'url' => 'http://agbeta.azurewebsites.net/upload/uploads'.'zips/'.$_POST['artistname'].','.$_POST['artname'].'.zip'
+    'url' => 'http://agbeta.azurewebsites.net/upload/zips/'.$_POST['artistname'].','.$_POST['artname'].'.zip'
     );
     
     $aHTTP = array(
